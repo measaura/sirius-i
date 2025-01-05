@@ -1,3 +1,6 @@
+<?php
+include_once 'includes/env.php';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -237,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // plugins: [ googleCalendarPlugin ],
         eventSources: [
             {
-                googleCalendarApiKey: 'AIzaSyC0qD8ctEzOOaejtq3qu9itaYwTOQDHOeM',
+                googleCalendarApiKey: $google_key,
                 googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com',
                 className: 'gcal-event' // an option!
             },
