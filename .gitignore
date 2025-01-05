@@ -1,0 +1,7 @@
+includes/db_func.php
+assets/uploads/
+assets/references/
+.vscode/
+nifty/
+*.old
+error_log
