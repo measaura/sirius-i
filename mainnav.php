@@ -96,6 +96,18 @@ function createGroup($group, $menu)
                 <?php echo createGroup(0, $menus); ?>
             </div>
             <!-- End - Navigation menu -->
+            <!-- Bottom navigation menu -->
+            <div class="mainnav__bottom-content border-top pb-2">
+               <ul id="mainnav" class="mainnav__menu nav flex-column">
+                  <li class="nav-item">
+                     <a href="logout.php" class="nav-link mininav-toggle collapsed" aria-expanded="false">
+                        <i class="demo-pli-unlock fs-5 me-2"></i>
+                        <span class="nav-label ms-1">Logout</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+            <!-- End - Bottom navigation menu -->
         </div>
     </nav>
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
