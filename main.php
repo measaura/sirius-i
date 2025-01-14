@@ -1,6 +1,7 @@
 <?php
 
 include_once 'includes/db_func.php';
+$user_id=$_SESSION['uid'];
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-scheme="orange">
