@@ -1,3 +1,18 @@
+<?php
+session_start();
+$toastmsg = '';
+$toasttype = '';
+if (isset($_SESSION['message']) && $_SESSION['message']!= ''){
+    $toastmsg = $_SESSION['message'];
+}
+if(isset($_SESSION['msgtype'])&&$_SESSION['msgtype']!=''){
+    $toasttype = $_SESSION['msgtype'];
+}
+
+unset($_SESSION['message']);
+unset($_SESSION['msgtype']);
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-scheme="orange">
 
@@ -35,8 +50,12 @@
 
    [ REQUIRED ]
    You must include this category in your project.
+   -->
 
+   <!-- toastr.js -->
+   <link rel="stylesheet" href="assets/vendors/toastr/toastr.min.css">
 
+   <!--
    [ OPTIONAL ]
    This is an optional plugin. You may choose to include it in your project.
 
@@ -326,15 +345,59 @@
    <!-- JAVASCRIPTS -->
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+   <script src="assets/js/jquery.js"></script>
 
    <!-- Bootstrap JS [ OPTIONAL ] -->
-   <script src="../../assets/js/bootstrap.min.js"></script>
-
+   <script src="assets/js/bootstrap.min.js"></script>
 
    <!-- Nifty JS [ OPTIONAL ] -->
-   <script src="../../assets/js/nifty.min.js"></script>
+   <script src="assets/js/nifty.min.js"></script>
+
+   <!-- toastr.js -->
+   <script src="assets/vendors/toastr/toastr.min.js"></script>
+
+   <script>
+      $(document).ready(function(){
+         var toastmsg = '<?php echo $toastmsg; ?>'
+         var toasttype = '<?php echo $toasttype; ?>'
+         toastr.options = {
+         "closeButton": true,
+         "debug": false,
+         "progressBar": true,
+         "preventDuplicates": false,
+         "positionClass": "toast-top-center",
+         "onclick": null,
+         "showDuration": "400",
+         "hideDuration": "1000",
+         "timeOut": "7000",
+         "extendedTimeOut": "1000",
+         "showEasing": "swing",
+         "hideEasing": "linear",
+         "showMethod": "fadeIn",
+         "hideMethod": "fadeOut"
+         }
+
+         if(toastmsg!=''){
+               if(toasttype == 'error'){
+                  toastr.error(toastmsg,'SIRIUS-I');
+               }else if(toasttype=='success'){
+                  toastr.success(toastmsg,'SIRIUS-I');
+               }else if(toasttype=='info'){
+                  toastr.info(toastmsg,'SIRIUS-I');
+               }else{
+                  toastr.info(toastmsg,'SIRIUS-I');
+               }
+         }
+
+         // $('.i-checks').iCheck({
+         //     checkboxClass: 'icheckbox_square-green',
+         //     radioClass: 'iradio_square-green',
+         // });
+         // $('#svpDiv').hide();
 
 
+      });
+   </script>
 </body>
 
 </html>
