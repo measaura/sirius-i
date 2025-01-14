@@ -1,5 +1,6 @@
 <?php
 // session_start();
+$user_id=$_SESSION['uid'];
 // echo "Session list<br/>";
 // foreach ($_SESSION as $key=>$value){
 //     echo "<b>".$key."</b>".": ".$value."<br/>";

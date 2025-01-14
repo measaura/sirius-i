@@ -24,7 +24,7 @@
                // console.log('sub '+this.href);
                // console.log('---');
                return this.pathname == location.pathname; 
-         }).addClass('active').parentsUntil('li.has-sub').siblings().addClass('active');
+         }).addClass('active').parentsUntil('li.has-sub').siblings().addClass('active').removeClass('collapsed');
          
       });
    </script>
