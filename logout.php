@@ -14,6 +14,7 @@ if(isset($_SESSION['username'])){
             session_destroy();
             session_start();
             $_SESSION['message']="You have successfully logged out";
+            $_SESSION['msgtype']="success";
             header('Location: index.php');
             exit;
         }
@@ -25,6 +26,7 @@ if(isset($_SESSION['username'])){
     session_destroy();
     session_start();
     $_SESSION['message']="You have successfully logged out";
+    $_SESSION['msgtype']="success";
     header('Location: index.php');
     exit;
 }
