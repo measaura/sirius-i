@@ -1,27 +1,45 @@
 <?php
+
+include_once 'includes/db_func.php';
 include_once 'includes/env.php';
+
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en" data-bs-theme="light" data-scheme="orange">
 
 <head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+   <meta name="description" content="Add your own content to this blank page.">
+   <title>Calendar | SIRIUS-I</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>STEP | Training Calendar</title>
+   <!-- STYLESHEETS -->
+   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <?php include_once 'head.php'; ?>
-    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+   <!-- Fonts [ OPTIONAL ] -->
+   
+   
+   <style type="text/css">@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/devanagari/300/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/devanagari/400/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/devanagari/500/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/devanagari/700/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek/500/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/500/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/500/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/500/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/700/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek/700/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
 
-    <link href="css/plugins/fullcalendar/main.css" rel="stylesheet">
-    <!-- <link href="css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'> -->
 
-    
+   <!-- Bootstrap CSS [ REQUIRED ] -->
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-    <!-- <link href="css/plugins/fullcalendar/main.css" rel="stylesheet"> -->
-    <!-- <script src="js/plugins/fullcalendar/moment.min.js"></script> -->
-    <style>
+   <!-- Nifty CSS [ REQUIRED ] -->
+   <link rel="stylesheet" href="assets/css/nifty.min.css">
+
+   <!-- Fullcalendar CSS [ REQUIRED ] -->
+   <link rel="stylesheet" href="assets/css/fullcalendar.css">
+
+
+   <!-- Favicons [ OPTIONAL ] -->
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+   <link rel="manifest" href="site.webmanifest">
+
+   <style>
     #calendar {
         /* max-width: 1100px;
         margin: 0 auto; */
@@ -50,369 +68,318 @@ include_once 'includes/env.php';
         overflow:visible;
     }
     </style>
+   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   [ REQUIRED ]
+   You must include this category in your project.
+
+
+   [ OPTIONAL ]
+   This is an optional plugin. You may choose to include it in your project.
+
+
+   [ DEMO ]
+   Used for demonstration purposes only. This category should NOT be included in your project.
+
+
+   [ SAMPLE ]
+   Here's a sample script that explains how to initialize plugins and/or components: This category should NOT be included in your project.
+
+
+   Detailed information and more samples can be found in the documentation.
+
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
 </head>
 
-<body class="">
+<body class="out-quart">
 
-    <div id="wrapper">
 
-<?php
-include 'sidebar.php';
-?>
+   <!-- PAGE CONTAINER -->
+   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+   <div id="root" class="root mn--max tm--expanded-hd mn--max mn--sticky">
 
-        <div id="page-wrapper" class="gray-bg">
-        <div class="row border-bottom">
-        
-<?php
-include 'topnav.php';
-?>
-        </div>
-            <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-sm-4">
-                    <h2>Training Calendar</h2>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="main.php">Home</a>
-                        </li>
-                        <li>
-                            <a href="trainings.php">Trainings</a>
-                        </li>
-                        <li class="active">
-                            <strong>Calendar</strong>
-                        </li>
-                    </ol>
-                </div>
-                <!-- <div class="col-sm-8">
-                    <div class="title-action">
-                        <a href="" class="btn btn-primary">This is action area</a>
-                    </div>
-                </div> -->
+      <!-- CONTENTS -->
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <section id="content" class="content">
+         <div class="content__header content__boxed overlapping">
+            <div class="content__wrap">
+
+
+               <!-- Breadcrumb -->
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="">Home</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">Calendar</li>
+                  </ol>
+               </nav>
+               <!-- END : Breadcrumb -->
+
+
+               <h1 class="page-title mb-0 mt-2">Calendar</h1>
+
+               <p class="lead">
+                  Event and expiry status calendar.
+               </p>
             </div>
 
-            <div class="wrapper wrapper-content">
-                <div class="row animated fadeInDown">
-                    <div class="col-lg-12">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Training Calendar</h5>
-                                <!-- <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="calendar.html#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="calendar.html#">Config option 1</a>
-                                        </li>
-                                        <li><a href="calendar.html#">Config option 2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div> -->
-                            </div>
-                            <div class="ibox-content">
-                                <div id="calendar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <!-- <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Draggable Events</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="calendar.html#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="calendar.html#">Config option 1</a>
-                                        </li>
-                                        <li><a href="calendar.html#">Config option 2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ibox-content">
-                                <div id='external-events'>
-                                    <p>Drag a event and drop into callendar.</p>
-                                    <div class='external-event navy-bg'>Go to shop and buy some products.</div>
-                                    <div class='external-event navy-bg'>Check the new CI from Corporation.</div>
-                                    <div class='external-event navy-bg'>Send documents to John.</div>
-                                    <div class='external-event navy-bg'>Phone to Sandra.</div>
-                                    <div class='external-event navy-bg'>Chat with Michael.</div>
-                                    <p class="m-t">
-                                        <input type='checkbox' id='drop-remove' class="i-checks" checked /> <label for='drop-remove'>remove after drop</label>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-content">
-                                <h2>FullCalendar</h2> is a jQuery plugin that provides a full-sized, drag & drop calendar like the one below. It uses AJAX to fetch events on-the-fly for each month and is
-                                easily configured to use your own feed format (an extension is provided for Google Calendar).
-                                <p>
-                                    <a href="http://arshaw.com/fullcalendar/" target="_blank">FullCalendar documentation</a>
-                                </p>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
+         </div>
+
+
+         <div class="content__boxed">
+            <div class="content__wrap">
+               <div class="card text-center mb-4 ">
+                  <!-- <div class="card-header">Header</div> -->
+                  <div class="card-body">
+                     <div>
+                        <div id="calendar"></div>
+                     </div>
+
+                  </div>
+               </div>
+
+
             </div>
-<?php
-include 'footer.php';
-?>
+         </div>
 
-<!-- jQuery UI  -->
-<script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-<!-- iCheck -->
-<script src="js/plugins/iCheck/icheck.min.js"></script>
+         <?php
+         include 'footer.php';
+         ?>
 
-<!-- Full Calendar -->
-<script src="js/plugins/fullcalendar/main.js"></script>
 
-<script>
-    // onkeyup event will occur when the user 
-    // release the key and calls the function
-    // assigned to this event
-    function getEvents() {
-        // if (str.length <7) {
-        //     document.getElementById("fullname").value = "";
-        //     document.getElementById("email").value = "";
-        //     document.getElementById("contact").value = "";
-        //     return;
-        // }
-        // else {
-            console.log("getEvents");
-            // Creates a new XMLHttpRequest object
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
+      </section>
 
-                // Defines a function to be called when
-                // the readyState property changes
-                if (this.readyState == 4 && 
-                        this.status == 200) {
-                    // Typical action to be performed
-                    // when the document is ready
-                    // var myObj = JSON.parse(this.responseText);
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <!-- END - CONTENTS -->
 
-                    // Returns the response data as a
-                    // string and store this array in
-                    // a variable assign the value 
-                    // received to first name input field
-                        
-                    // document.getElementById("fullname").value = myObj[0];
-                    // document.getElementById("email").value = myObj[1];
-                    // document.getElementById("contact").value = myObj[2];
-                    // console.log(this.responseText);
-                    myObj = this.responseText;
-                    return myObj;
-                }
-            };
+      <?php
+      include 'header.php';
+      include 'mainnav.php'; 
+      ?>
 
-            // xhttp.open("GET", "filename", true);
-            xmlhttp.open("GET", "get_events.php?emp_id=", true);
-                
-            // Sends the request to the server
-            xmlhttp.send();
-        // }
-    }
+   </div>
+   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+   <!-- END - PAGE CONTAINER -->
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOMContentLoaded");
-    // alert(eventJson);
-    const d = new Date();
-    var dateToday = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2, '0')+'-'+String(d.getDate()).padStart(2, '0');
-    // alert(dateToday);
-    var dateNow = String(dateToday);
+   <?php
+   include_once 'javascript.php';
+   ?>
 
-    var calendarEl = document.getElementById('calendar');
+   <script src="assets/vendors/fullcalendar/index.global.js"></script>
+   <script src="assets/vendors/fullcalendar/gcal.js"></script>
+   <script>
+   function getEvents() {
+      // if (str.length <7) {
+      //     document.getElementById("fullname").value = "";
+      //     document.getElementById("email").value = "";
+      //     document.getElementById("contact").value = "";
+      //     return;
+      // }
+      // else {
+         console.log("getEvents");
+         // Creates a new XMLHttpRequest object
+         var xmlhttp = new XMLHttpRequest();
+         xmlhttp.onreadystatechange = function () {
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        // plugins: [ googleCalendarPlugin ],
-        eventSources: [
-            {
-                googleCalendarApiKey: $google_key,
-                googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com',
-                className: 'gcal-event' // an option!
-            },
-            'get_events.php'
-        ],
-        // events: 'get_events.php',
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        firstDay: 1,
-        initialDate: dateNow,
-        navLinks: true, // can click day/week names to navigate views
-        selectable: true,
-        selectMirror: true,
-        select: function(arg) {
-            var title = prompt('Event Title:');
-            if (title) {
-            calendar.addEvent({
-                title: title,
-                start: arg.start,
-                end: arg.end,
-                allDay: arg.allDay
-            })
-                console.log('Start: '+arg.start);
-                console.log('End: '+arg.end);
-                console.log('Title: '+title);
-                console.log('All day: '+arg.allDay);
-                console.log('Color: '+arg.eventColor);
-                const offset = arg.start.getTimezoneOffset();
-                startDate = new Date(arg.start.getTime() - (offset*60*1000));
-                endDate = new Date(arg.end.getTime() - (offset*60*1000));
-                var data = {
-                    title: title,
-                    start: startDate.toISOString().slice(0, 19).replace('T', ' '),
-                    end: arg.end != null ? endDate.toISOString().slice(0, 19).replace('T', ' ') : null,
-                    allday: arg.allDay
-                };
-                saveEvent(data);
-            }
-            calendar.unselect()
-        },
-        eventMouseEnter: function(arg){
+               // Defines a function to be called when
+               // the readyState property changes
+               if (this.readyState == 4 && 
+                     this.status == 200) {
+                  // Typical action to be performed
+                  // when the document is ready
+                  // var myObj = JSON.parse(this.responseText);
 
-            var start = arg.event.start;
-            var end = arg.event.end;
-            var allDay = arg.event.allDay;
-            var startTime;
-            var endTime;
-            
-            console.log(arg.event);
+                  // Returns the response data as a
+                  // string and store this array in
+                  // a variable assign the value 
+                  // received to first name input field
+                     
+                  // document.getElementById("fullname").value = myObj[0];
+                  // document.getElementById("email").value = myObj[1];
+                  // document.getElementById("contact").value = myObj[2];
+                  // console.log(this.responseText);
+                  myObj = this.responseText;
+                  return myObj;
+               }
+         };
 
-            const offset = start.getTimezoneOffset();
+         // xhttp.open("GET", "filename", true);
+         xmlhttp.open("GET", "get_events.php?emp_id=", true);
+               
+         // Sends the request to the server
+         xmlhttp.send();
+      // }
+   }
 
-            if (!start) {
-                startTime = '';
-            } else {
-                startDate = new Date(start.getTime() - (offset*60*1000));
-                startTime = "Start: "+startDate.toISOString().slice(0, 19).replace('T', ' ');
-            }
+   document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+         initialView: 'dayGridMonth'
+      });
 
-            if (!end || allDay) {
-                endTime = '';
-            } else {
-                endDate = new Date(end.getTime() - (offset*60*1000));
-                endTime = "End: " + endDate.toISOString().slice(0, 19).replace('T', ' ');
-            }
 
-            if(allDay){
-                alldayEvent = "All day event";
-            }else{
-                alldayEvent = "";
-            }
+      const d = new Date();
+      var dateToday = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2, '0')+'-'+String(d.getDate()).padStart(2, '0');
+      // alert(dateToday);
+      var dateNow = String(dateToday);
 
-            var title = arg.event.title;
-            var location = "at " + arg.event.extendedProps.location;
-            if (!arg.event.extendedProps.location) {
-                location = '';
-            }
+      var calendarEl = document.getElementById('calendar');
 
-            var contentTemplate = '<div style="padding: 15px;">' + startTime + '<br/>'+  endTime +  alldayEvent + '</div>';
-            $(arg.el).popover({
-                title: title,
-                // placement:'top',
-                trigger : 'hover',
-                html: true,
-                // content: "Start: "+startTime + "<br/>"+ "End: " + endTime,
-                container:'body',
-                template: '<div class="popover" style="width: 400px !important; max-width: 600px !important;" role="tooltip">\
-                <div class="arrow"></div>\
-                <h3 class="popover-title"></h3>\
-                <div style="padding: 15px;"></div>\
-                <div style="width: 100%; font-style: italic; font-size: 10px; margin-bottom: 10px; margin-top: -5px;"><p>'+title+'</p></div>\
-                '+contentTemplate+'\
-                </div>',
-                placement: function (context, source) {
-                    var position = $(source).position();
-                    // console.log(position.left);
-                    // console.log(source);
-                    // console.log(context);
-                    if (position.left > 515) {
-                        return "left";
-                    }
-                    if (position.left < 515) {
-                        return "right";
-                    }
-                    if (position.top < 110){
-                        return "bottom";
-                    }
-                    return "top";
-                },
-                // trigger: "hover"
-            }).popover('show');
-            // $(arg.el).popover('hide');
-        },
-        eventClick: function(info) {
-            // if (confirm('Are you sure you want to delete '+info.event.title+'?')) {
-            //     console.log(info.event.id);
-            //     var data = {
-            //         eventId : info.event.id,
-            //         delEvent : true
-            //     };
-            //     delEvent(data);
-            //     info.event.remove()
-            // }            
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+         // plugins: [ googleCalendarPlugin ],
+         googleCalendarApiKey: <?php echo "'".$google_key."'"; ?>,
+         eventSources: [
+               {
+                  googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com',
+                  className: 'gcal-event' // an option!
+               },
+               'get_events.php'
+         ],  
+            //   eventSourceFailure(error) {
+            //       if (error instanceof JsonRequestError) {
+            //          console.log(`Request to ${error.response.url} failed`)
+            //       }
+            //    },
 
-            info.jsEvent.preventDefault(); // don't let the browser navigate
-            if (info.event.url) {
-                window.open(info.event.url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=1000,height=800");
-            }
-        },
-        editable: false,
-        dayMaxEvents: true, // allow "more" link when too many events
-    });
+         // events: 'get_events.php',
+         headerToolbar: {
+               left: 'prev,next today',
+               center: 'title',
+               right: 'dayGridMonth,timeGridWeek,timeGridDay'
+         },
+         firstDay: 1,
+         initialDate: dateNow,
+         navLinks: true, // can click day/week names to navigate views
+         selectable: true,
+         selectMirror: true,
+         select: function(arg) {
+               var title = prompt('Event Title:');
+               if (title) {
+               calendar.addEvent({
+                  title: title,
+                  start: arg.start,
+                  end: arg.end,
+                  allDay: arg.allDay
+               })
+                  console.log('Start: '+arg.start);
+                  console.log('End: '+arg.end);
+                  console.log('Title: '+title);
+                  console.log('All day: '+arg.allDay);
+                  console.log('Color: '+arg.eventColor);
+                  const offset = arg.start.getTimezoneOffset();
+                  startDate = new Date(arg.start.getTime() - (offset*60*1000));
+                  endDate = new Date(arg.end.getTime() - (offset*60*1000));
+                  var data = {
+                     title: title,
+                     start: startDate.toISOString().slice(0, 19).replace('T', ' '),
+                     end: arg.end != null ? endDate.toISOString().slice(0, 19).replace('T', ' ') : null,
+                     allday: arg.allDay
+                  };
+                  saveEvent(data);
+               }
+               calendar.unselect()
+         },
+         eventMouseEnter: function(arg){
 
-    calendar.render();
-});
+               var start = arg.event.start;
+               var end = arg.event.end;
+               var allDay = arg.event.allDay;
+               var startTime;
+               var endTime;
+               
+               // console.log(arg.event);
 
-function saveEvent(data) {
-    $.ajax({
-        type: "POST",
-        url: 'save_events.php',
-        data: data,
-        success: function (data) {
-            // alert(data,status);
-            if (data.status) {
-                calendar.render();
-            }
-        },
-        error: function () {
-            alert('Failed');
-        }
-    })
-}
-function delEvent(data) {
-    $.ajax({
-        type: "POST",
-        url: 'save_events.php?delete',
-        data: data,
-        success: function (data) {
-            // alert(data,status);
-            if (data.status) {
-                calendar.render();
-            }
-        },
-        error: function () {
-            alert('Failed');
-        }
-    })
-}
-</script>
+               const offset = start.getTimezoneOffset();
+
+               if (!start) {
+                  startTime = '';
+               } else {
+                  startDate = new Date(start.getTime() - (offset*60*1000));
+                  startTime = "Start: "+startDate.toISOString().slice(0, 19).replace('T', ' ');
+               }
+
+               if (!end || allDay) {
+                  endTime = '';
+               } else {
+                  endDate = new Date(end.getTime() - (offset*60*1000));
+                  endTime = "End: " + endDate.toISOString().slice(0, 19).replace('T', ' ');
+               }
+
+               if(allDay){
+                  alldayEvent = "All day event";
+               }else{
+                  alldayEvent = "";
+               }
+
+               var title = arg.event.title;
+               var location = "at " + arg.event.extendedProps.location;
+               if (!arg.event.extendedProps.location) {
+                  location = '';
+               }
+
+               var contentTemplate = '<div style="padding: 15px;">' + startTime + '<br/>'+  endTime +  alldayEvent + '</div>';
+               $(arg.el).popover({
+                  title: title,
+                  // placement:'top',
+                  trigger : 'hover',
+                  html: true,
+                  // content: "Start: "+startTime + "<br/>"+ "End: " + endTime,
+                  container:'body',
+                  template: '<div class="popover" style="width: 400px !important; max-width: 600px !important;" role="tooltip">\
+                  <div class="arrow"></div>\
+                  <h3 class="popover-title"></h3>\
+                  <div style="padding: 15px;"></div>\
+                  <div style="width: 100%; font-style: italic; font-size: 10px; margin-bottom: 10px; margin-top: -5px;"><p>'+title+'</p></div>\
+                  '+contentTemplate+'\
+                  </div>',
+                  placement: function (context, source) {
+                     var position = $(source).position();
+                     // console.log(position.left);
+                     // console.log(source);
+                     // console.log(context);
+                     if (position.left > 515) {
+                           return "left";
+                     }
+                     if (position.left < 515) {
+                           return "right";
+                     }
+                     if (position.top < 110){
+                           return "bottom";
+                     }
+                     return "top";
+                  },
+                  // trigger: "hover"
+               }).popover('show');
+               // $(arg.el).popover('hide');
+         },
+         eventClick: function(info) {
+               // if (confirm('Are you sure you want to delete '+info.event.title+'?')) {
+               //     console.log(info.event.id);
+               //     var data = {
+               //         eventId : info.event.id,
+               //         delEvent : true
+               //     };
+               //     delEvent(data);
+               //     info.event.remove()
+               // }            
+
+               info.jsEvent.preventDefault(); // don't let the browser navigate
+               if (info.event.url) {
+                  window.open(info.event.url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=1000,height=800");
+               }
+         },
+         editable: false,
+         dayMaxEvents: true, // allow "more" link when too many events
+      });
+
+      calendar.render();
+   });
+
+   </script>
+
+
 </body>
 
 </html>
