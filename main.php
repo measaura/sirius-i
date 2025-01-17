@@ -65,7 +65,7 @@ include_once 'includes/db_func.php';
 
    <!-- PAGE CONTAINER -->
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-   <div id="root" class="root mn--max tm--expanded-hd">
+   <div id="root" class="root mn--max tm--expanded-hd mn--max mn--sticky">
 
       <!-- CONTENTS -->
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

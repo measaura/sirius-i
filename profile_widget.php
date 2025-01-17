@@ -1,5 +1,6 @@
 <?php
 // session_start();
+$user_id=$_SESSION['uid'];
 // echo "Session list<br/>";
 // foreach ($_SESSION as $key=>$value){
 //     echo "<b>".$key."</b>".": ".$value."<br/>";
@@ -11,7 +12,7 @@ $res = mysqli_query($conn, $qry);
 while ($row = mysqli_fetch_array($res)){
    $user_fullname = $row['fullname'];
    $designation = $row['designation'];
-   $user_email = $row['email'];
+   $user_email = $row['username'];
    $user_avatar = $row['avatar'];
 }
 ?>
