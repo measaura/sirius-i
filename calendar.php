@@ -40,6 +40,9 @@ include_once 'includes/env.php';
    <link rel="manifest" href="site.webmanifest">
 
    <style>
+   :root{
+      --fc-today-bg-color:#f5a338;
+   }
     #calendar {
         /* max-width: 1100px;
         margin: 0 auto; */
@@ -53,8 +56,21 @@ include_once 'includes/env.php';
     .fc-day-sun { 
         background-color:lightsalmon; 
     }
+    .fc-day-sun .fc-daygrid-day-number{
+      color: black;
+    }
+    .fc-day-sun .fc-col-header-cell-cushion{
+      color: black;
+    }
     .fc-day-sat { 
         background-color:papayawhip;  
+    }
+    .fc-day-today {
+        background-color: #f0f0f0;
+    }
+    .fc-daygrid-day-number{
+      font-size: 1.2em;
+      font-weight: bold;
     }
     .gcal-event {
         background-color: mistyrose;
@@ -214,38 +230,23 @@ include_once 'includes/env.php';
    }
 
    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-         initialView: 'dayGridMonth'
-      });
-
-
       const d = new Date();
       var dateToday = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2, '0')+'-'+String(d.getDate()).padStart(2, '0');
       // alert(dateToday);
       var dateNow = String(dateToday);
-
       var calendarEl = document.getElementById('calendar');
-
       var calendar = new FullCalendar.Calendar(calendarEl, {
-         // plugins: [ googleCalendarPlugin ],
-         googleCalendarApiKey: <?php echo "'".$google_key."'"; ?>,
          eventSources: [
                {
+                  googleCalendarApiKey: <?php echo "'".$google_key."'"; ?>,
                   googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com',
                   className: 'gcal-event' // an option!
                },
                'get_events.php'
-         ],  
-            //   eventSourceFailure(error) {
-            //       if (error instanceof JsonRequestError) {
-            //          console.log(`Request to ${error.response.url} failed`)
-            //       }
-            //    },
-
+         ],
          // events: 'get_events.php',
          headerToolbar: {
-               left: 'prev,next today',
+               left: 'prevYear,prev,next,nextYear today',
                center: 'title',
                right: 'dayGridMonth,timeGridWeek,timeGridDay'
          },
