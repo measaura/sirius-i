@@ -1,3 +1,6 @@
+<?php
+include_once 'includes/db_func.php';
+?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-scheme="orange">
 
