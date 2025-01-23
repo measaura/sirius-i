@@ -8,7 +8,7 @@
                <div class="brand-wrap">
 
                   <!-- Brand logo -->
-                  <a href="/" class="brand-img stretched-link">
+                  <a href="<?php echo $_SESSION['username']?'main.php':'/'; ?>" class="brand-img stretched-link">
                      <img src="assets/img/svp-sirius.png" alt="SVP Logo" class="SVP logo" width="32" height="32">
                      <!-- <img src="assets/img/svp-sirius.png" alt="SIRIUS-P" class="brand-image" style="opacity: .8"> -->
                   </a>
