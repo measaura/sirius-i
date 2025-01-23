@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light" data-scheme="navy">
+<html lang="en" data-bs-theme="light" data-scheme="orange">
 
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-   <meta name="description" content="Interactive Tables and Data Grids for JavaScript.">
-   <title>Tabulator | Nifty - Admin Template</title>
+   <meta name="description" content="Add your own content to this blank page.">
+   <title>FCP Inventory | SIRIUS-I</title>
 
 
    <!-- STYLESHEETS -->
@@ -14,7 +14,7 @@
    <!-- Fonts [ OPTIONAL ] -->
    
    
-   <style type="text/css">@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(/cf-fonts/s/poppins/5.0.11/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/300/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(/cf-fonts/s/poppins/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/400/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(/cf-fonts/s/poppins/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/500/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/700/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(/cf-fonts/s/poppins/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(/cf-fonts/s/ubuntu/5.0.11/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(/cf-fonts/s/ubuntu/5.0.11/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(/cf-fonts/s/ubuntu/5.0.11/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(/cf-fonts/s/ubuntu/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(/cf-fonts/s/ubuntu/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(/cf-fonts/s/ubuntu/5.0.11/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(/cf-fonts/s/ubuntu/5.0.11/greek-ext/500/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(/cf-fonts/s/ubuntu/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(/cf-fonts/s/ubuntu/5.0.11/cyrillic-ext/500/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(/cf-fonts/s/ubuntu/5.0.11/cyrillic/500/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(/cf-fonts/s/ubuntu/5.0.11/greek/500/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(/cf-fonts/s/ubuntu/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(/cf-fonts/s/ubuntu/5.0.11/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(/cf-fonts/s/ubuntu/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(/cf-fonts/s/ubuntu/5.0.11/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(/cf-fonts/s/ubuntu/5.0.11/greek/700/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(/cf-fonts/s/ubuntu/5.0.11/greek-ext/700/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(/cf-fonts/s/ubuntu/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
+   <style type="text/css">@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/devanagari/300/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/devanagari/400/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/devanagari/500/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/devanagari/700/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek/500/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/500/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/500/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/500/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/700/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek/700/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
 
 
    <!-- Bootstrap CSS [ REQUIRED ] -->
@@ -23,6 +23,9 @@
    <!-- Nifty CSS [ REQUIRED ] -->
    <link rel="stylesheet" href="assets/css/nifty.min.css">
 
+   <!-- Tabulator CSS [ REQUIRED ] -->
+   <!-- <link rel="stylesheet" href="assets/vendors/tabulator/css/tabulator.min.css"> -->
+   <link rel="stylesheet" href="assets/pages/tabulator.594dba0f683f451ea86885101e908a107608649cfba970d58003968fc240d2a1.css">
 
    <!-- Favicons [ OPTIONAL ] -->
    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -30,9 +33,6 @@
    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
    <link rel="manifest" href="site.webmanifest">
 
-
-   <!-- Tabulator styles [ OPTIONAL ] -->
-   <link rel="stylesheet" href="assets/pages/tabulator.594dba0f683f451ea86885101e908a107608649cfba970d58003968fc240d2a1.css">
 
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -64,7 +64,7 @@
 
    <!-- PAGE CONTAINER -->
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-   <div id="root" class="root mn--max tm--expanded-hd">
+   <div id="root" class="root mn--max tm--expanded-hd mn--max mn--sticky">
 
       <!-- CONTENTS -->
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -77,17 +77,17 @@
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                      <li class="breadcrumb-item"><a href="">Home</a></li>
-                     <li class="breadcrumb-item"><a href="tables/">Tables</a></li>
-                     <li class="breadcrumb-item active" aria-current="page">Tabulator</li>
+                     <!-- <li class="breadcrumb-item"><a href="tables/">Tables</a></li> -->
+                     <li class="breadcrumb-item active" aria-current="page">FCP Inventory</li>
                   </ol>
                </nav>
                <!-- END : Breadcrumb -->
 
 
-               <h1 class="page-title mb-0 mt-2">Tabulator</h1>
+               <h1 class="page-title mb-0 mt-2">FCP Inventory</h1>
 
                <p class="lead">
-                  Interactive Tables and Data Grids for JavaScript.
+                  Flow Control Products Inventory.
                </p>
             </div>
 
@@ -315,1220 +315,10 @@
       <!-- END - CONTENTS -->
 
 
-      <!-- HEADER -->
-      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <header class="header">
-         <div class="header__inner">
-
-            <!-- Brand -->
-            <div class="header__brand">
-               <div class="brand-wrap">
-
-                  <!-- Brand logo -->
-                  <a href="" class="brand-img stretched-link">
-                     <img src="assets/img/logo.svg" alt="Nifty Logo" class="Nifty logo" width="16" height="16">
-                  </a>
-
-
-                  <!-- Brand title -->
-                  <div class="brand-title">Nifty</div>
-
-
-                  <!-- You can also use IMG or SVG instead of a text element. -->
-                  <!--
-            <div class="brand-title">
-               <img src="assets/img/brand-title.svg" alt="Brand Title">
-            </div>
-            -->
-
-               </div>
-            </div>
-            <!-- End - Brand -->
-
-
-            <div class="header__content">
-
-               <!-- Content Header - Left Side: -->
-               <div class="header__content-start">
-
-
-                  <!-- Navigation Toggler -->
-                  <button type="button" class="nav-toggler header__btn btn btn-icon btn-sm" aria-label="Nav Toggler">
-                     <i class="demo-psi-list-view"></i>
-                  </button>
-
-                  <div class="vr mx-1 d-none d-md-block"></div>
-
-                  <!-- Searchbox -->
-                  <div class="header-searchbox">
-
-                     <!-- Searchbox toggler for small devices -->
-                     <label for="header-search-input" class="header__btn d-md-none btn btn-icon rounded-pill shadow-none border-0 btn-sm" type="button">
-                        <i class="demo-psi-magnifi-glass"></i>
-                     </label>
-
-                     <!-- Searchbox input -->
-                     <form class="searchbox searchbox--auto-expand searchbox--hide-btn input-group">
-                        <input id="header-search-input" class="searchbox__input form-control bg-transparent" type="search" placeholder="Type for search . . ." aria-label="Search">
-                        <div class="searchbox__backdrop">
-                           <button class="searchbox__btn header__btn btn btn-icon rounded shadow-none border-0 btn-sm" type="button">
-                              <i class="demo-pli-magnifi-glass"></i>
-                           </button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-               <!-- End - Content Header - Left Side -->
-
-
-               <!-- Content Header - Right Side: -->
-               <div class="header__content-end">
-
-
-                  <!-- Mega Dropdown -->
-                  <div class="dropdown">
-
-                     <!-- Toggler -->
-                     <button class="header__btn btn btn-icon btn-sm" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-label="Megamenu dropdown" aria-expanded="false">
-                        <i class="demo-psi-layout-grid"></i>
-                     </button>
-
-                     <!-- Mega Dropdown Menu -->
-                     <div class="dropdown-menu dropdown-menu-end p-3 mega-dropdown">
-                        <div class="row">
-                           <div class="col-md-3">
-
-
-                              <!-- Pages List Group -->
-                              <div class="list-group list-group-borderless">
-                                 <div class="list-group-item d-flex align-items-center border-bottom mb-2">
-                                    <div class="flex-shrink-0 me-2">
-                                       <i class="demo-pli-file fs-4"></i>
-                                    </div>
-                                    <h5 class="flex-grow-1 m-0">Pages</h5>
-                                 </div>
-                                 <a href="#" class="list-group-item list-group-item-action">Profile</a>
-                                 <a href="#" class="list-group-item list-group-item-action">Search Result</a>
-                                 <a href="#" class="list-group-item list-group-item-action">FAQ</a>
-                                 <a href="#" class="list-group-item list-group-item-action">Screen Lock</a>
-                                 <a href="#" class="list-group-item list-group-item-action">Maintenance</a>
-                                 <a href="#" class="list-group-item list-group-item-action">Invoices</a>
-                                 <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Disabled Item</a>
-                              </div>
-
-
-                           </div>
-                           <div class="col-md-3">
-
-
-                              <!-- Mailbox list group -->
-                              <div class="list-group list-group-borderless mb-3">
-                                 <div class="list-group-item d-flex align-items-center border-bottom mb-2">
-                                    <div class="flex-shrink-0 me-2">
-                                       <i class="demo-pli-mail fs-4"></i>
-                                    </div>
-                                    <h5 class="flex-grow-1 m-0">Mailbox</h5>
-                                 </div>
-                                 <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    Inbox <span class="badge bg-danger rounded-pill">14</span>
-                                 </a>
-                                 <a href="#" class="list-group-item list-group-item-action">Read Messages</a>
-                                 <a href="#" class="list-group-item list-group-item-action">Compose</a>
-                                 <a href="#" class="list-group-item list-group-item-action">Template</a>
-                              </div>
-
-
-                              <!-- News -->
-                              <div class="list-group list-group-borderless bg-warning-subtle py-2">
-                                 <div class="list-group-item d-flex align-items-center border-bottom text-warning-emphasis">
-                                    <div class="flex-shrink-0 me-2">
-                                       <i class="demo-pli-calendar-4 fs-4"></i>
-                                    </div>
-                                    <h5 class="flex-grow-1 m-0 text-reset">News</h5>
-                                 </div>
-                                 <small class="list-group-item text-warning-emphasis">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic dolore unde autem, molestiae eum laborum aliquid at commodi cum? Blanditiis.
-                                 </small>
-                              </div>
-
-
-                           </div>
-                           <div class="col-md-3">
-
-
-                              <!-- List Group -->
-                              <div class="list-group list-group-borderless">
-                                 <div class="list-group-item list-group-item-action d-flex align-items-start mb-3">
-                                    <div class="flex-shrink-0 me-3">
-                                       <i class="demo-pli-data-settings fs-1"></i>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                       <div class="d-flex justify-content-between align-items-start">
-                                          <a href="#" class="h5 d-block mb-0 stretched-link text-decoration-none">Data Backup</a>
-                                          <span class="badge bg-success rounded-pill ms-auto">40%</span>
-                                       </div>
-                                       <small class="text-body-secondary">Current usage of disks for backups.</small>
-                                    </div>
-                                 </div>
-
-                                 <div class="list-group-item list-group-item-action d-flex align-items-start mb-3">
-                                    <div class="flex-shrink-0 me-3">
-                                       <i class="demo-pli-support fs-1"></i>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                       <a href="#" class="h5 d-block mb-0 stretched-link text-decoration-none">Support</a>
-                                       <small class="text-body-secondary">Have any questions ? please don't hesitate to ask.</small>
-                                    </div>
-                                 </div>
-
-                                 <div class="list-group-item list-group-item-action d-flex align-items-start mb-3">
-                                    <div class="flex-shrink-0 me-3">
-                                       <i class="demo-pli-computer-secure fs-1"></i>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                       <a href="#" class="h5 d-block mb-0 stretched-link text-decoration-none">Security</a>
-                                       <small class="text-body-secondary">Our devices are secure and up-to-date.</small>
-                                    </div>
-                                 </div>
-
-
-                                 <div class="list-group-item list-group-item-action d-flex align-items-start">
-                                    <div class="flex-shrink-0 me-3">
-                                       <i class="demo-pli-map-2 fs-1"></i>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                       <a href="#" class="h5 d-block mb-0 stretched-link text-decoration-none">Location</a>
-                                       <small class="text-body-secondary">From our location up here, we kept in close touch.</small>
-                                    </div>
-                                 </div>
-                              </div>
-
-
-                           </div>
-                           <div class="col-md-3">
-
-                              <!-- Simple gallery -->
-                              <div class="d-grid gap-2 pt-4 pt-md-0">
-                                 <div class="row g-1 rounded-3 overflow-hidden">
-                                    <div class="col-6 mt-0">
-                                       <img class="img-fluid" src="assets/img/megamenu/img-1.jpg" alt="thumbnails" loading="lazy">
-                                    </div>
-                                    <div class="col-6 mt-0">
-                                       <img class="img-fluid" src="assets/img/megamenu/img-3.jpg" alt="thumbnails" loading="lazy">
-                                    </div>
-                                    <div class="col-6">
-                                       <img class="img-fluid" src="assets/img/megamenu/img-2.jpg" alt="thumbnails" loading="lazy">
-                                    </div>
-                                    <div class="col-6">
-                                       <img class="img-fluid" src="assets/img/megamenu/img-4.jpg" alt="thumbnails" loading="lazy">
-                                    </div>
-                                 </div>
-                                 <a href="#" class="btn btn-primary">Browse Gallery</a>
-                              </div>
-
-
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- End - Mega Dropdown -->
-
-
-                  <!-- Notification Dropdown -->
-                  <div class="dropdown">
-
-                     <!-- Toggler -->
-                     <button class="header__btn btn btn-icon btn-sm" type="button" data-bs-toggle="dropdown" aria-label="Notification dropdown" aria-expanded="false">
-                        <span class="d-block position-relative">
-                           <i class="demo-psi-bell"></i>
-
-                           <span class="badge badge-super rounded-pill bg-danger p-1">
-                              <span class="visually-hidden">unread messages</span>
-                           </span>
-
-                           <!-- Set custom notification count -->
-                           <!--
-                     <span class="badge badge-super rounded-pill bg-danger p-1">
-                     	 19<span class="visually-hidden">unread messages</span>
-                     </span>
-                     -->
-
-                        </span>
-                     </button>
-
-
-                     <!-- Notification dropdown menu -->
-                     <div class="dropdown-menu dropdown-menu-end w-md-300px">
-                        <div class="border-bottom px-3 py-2 mb-3">
-                           <h5>Notifications</h5>
-                        </div>
-
-
-                        <div class="list-group list-group-borderless">
-
-
-                           <!-- List item -->
-                           <div class="list-group-item list-group-item-action d-flex align-items-center mb-3">
-                              <div class="flex-shrink-0 me-3">
-                                 <i class="demo-psi-data-settings text-danger fs-2"></i>
-                              </div>
-                              <div class="flex-grow-1">
-                                 <a href="#" class="h6 fw-normal d-block mb-0 stretched-link text-decoration-none">Your storage is full</a>
-                                 <small class="text-body-secondary">Local storage is nearly full.</small>
-                              </div>
-                           </div>
-
-
-                           <!-- List item -->
-                           <div class="list-group-item list-group-item-action d-flex align-items-center mb-3">
-                              <div class="flex-shrink-0 me-3">
-                                 <i class="demo-psi-pen-5 text-info fs-2"></i>
-                              </div>
-                              <div class="flex-grow-1">
-                                 <a href="#" class="h6 fw-normal d-block mb-0 stretched-link text-decoration-none">Writing a New Article</a>
-                                 <small class="text-body-secondary">Wrote a news article for the John Mike</small>
-                              </div>
-                           </div>
-
-
-                           <!-- List item -->
-                           <div class="list-group-item list-group-item-action d-flex align-items-start mb-3">
-                              <div class="flex-shrink-0 me-3">
-                                 <i class="demo-psi-speech-bubble-3 text-success fs-2"></i>
-                              </div>
-                              <div class="flex-grow-1">
-                                 <div class="d-flex justify-content-between align-items-start">
-                                    <a href="#" class="h6 fw-normal mb-0 stretched-link text-decoration-none">Comment sorting</a>
-                                    <span class="badge bg-info rounded ms-auto">NEW</span>
-                                 </div>
-                                 <small class="text-body-secondary">You have 1,256 unsorted comments.</small>
-                              </div>
-                           </div>
-
-
-                           <!-- List item -->
-                           <div class="list-group-item list-group-item-action d-flex align-items-start mb-3">
-                              <div class="flex-shrink-0 me-3">
-                                 <img class="img-xs rounded-circle" src="assets/img/profile-photos/7.png" alt="Profile Picture" loading="lazy">
-                              </div>
-                              <div class="flex-grow-1">
-                                 <a href="#" class="h6 fw-normal d-block mb-0 stretched-link text-decoration-none">Lucy Sent you a message</a>
-                                 <small class="text-body-secondary">30 minutes ago</small>
-                              </div>
-                           </div>
-
-
-                           <!-- List item -->
-                           <div class="list-group-item list-group-item-action d-flex align-items-start mb-3">
-                              <div class="flex-shrink-0 me-3">
-                                 <img class="img-xs rounded-circle" src="assets/img/profile-photos/3.png" alt="Profile Picture" loading="lazy">
-                              </div>
-                              <div class="flex-grow-1">
-                                 <a href="#" class="h6 fw-normal d-block mb-0 stretched-link text-decoration-none">Jackson Sent you a message</a>
-                                 <small class="text-body-secondary">1 hours ago</small>
-                              </div>
-                           </div>
-
-                           <div class="text-center mb-2">
-                              <a href="#" class="btn-link text-primary icon-link icon-link-hover">
-                                 Show all Notifications
-                                 <i class="bi demo-psi-arrow-out-right"></i>
-                              </a>
-                           </div>
-
-                        </div>
-                     </div>
-                  </div>
-                  <!-- End - Notification dropdown -->
-
-
-                  <!-- User dropdown -->
-                  <div class="dropdown">
-
-                     <!-- Toggler -->
-                     <button class="header__btn btn btn-icon btn-sm" type="button" data-bs-toggle="dropdown" aria-label="User dropdown" aria-expanded="false">
-                        <i class="demo-psi-male"></i>
-                     </button>
-
-
-                     <!-- User dropdown menu -->
-                     <div class="dropdown-menu dropdown-menu-end w-md-450px">
-
-                        <!-- User dropdown header -->
-                        <div class="d-flex align-items-center border-bottom px-3 py-2">
-                           <div class="flex-shrink-0">
-                              <img class="img-sm rounded-circle" src="assets/img/profile-photos/4.png" alt="Profile Picture" loading="lazy">
-                           </div>
-                           <div class="flex-grow-1 ms-3">
-                              <h5 class="mb-0">Aaron Chavez</h5>
-                              <span class="text-body-secondary fst-italic">aaron_chavez@example.com</span>
-                           </div>
-                        </div>
-
-                        <div class="row">
-                           <div class="col-md-7">
-
-                              <!-- Simple widget and reports -->
-                              <div class="list-group list-group-borderless mb-3">
-                                 <div class="list-group-item text-center border-bottom mb-3">
-                                    <p class="h1 display-1 text-primary fw-semibold">17</p>
-                                    <p class="h6 mb-0"><i class="demo-pli-basket-coins fs-3 me-2"></i> New orders</p>
-                                    <small class="text-body-secondary">You have new orders</small>
-                                 </div>
-                                 <div class="list-group-item py-0 d-flex justify-content-between align-items-center">
-                                    Today Earning
-                                    <small class="fw-bolder">$578</small>
-                                 </div>
-                                 <div class="list-group-item py-0 d-flex justify-content-between align-items-center">
-                                    Tax
-                                    <small class="fw-bolder text-danger">- $28</small>
-                                 </div>
-                                 <div class="list-group-item py-0 d-flex justify-content-between align-items-center">
-                                    Total Earning
-                                    <span class="fw-bolder text-body-emphasis">$6,578</span>
-                                 </div>
-                              </div>
-
-
-                           </div>
-                           <div class="col-md-5">
-
-                              <!-- User menu link -->
-                              <div class="list-group list-group-borderless h-100 py-3">
-                                 <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <span><i class="demo-pli-mail fs-5 me-2"></i> Messages</span>
-                                    <span class="badge bg-danger rounded-pill">14</span>
-                                 </a>
-                                 <a href="#" class="list-group-item list-group-item-action">
-                                    <i class="demo-pli-male fs-5 me-2"></i> Profile
-                                 </a>
-                                 <a href="#" class="list-group-item list-group-item-action">
-                                    <i class="demo-pli-gear fs-5 me-2"></i> Settings
-                                 </a>
-
-                                 <a href="#" class="list-group-item list-group-item-action mt-auto">
-                                    <i class="demo-pli-computer-secure fs-5 me-2"></i> Lock screen
-                                 </a>
-                                 <a href="#" class="list-group-item list-group-item-action">
-                                    <i class="demo-pli-unlock fs-5 me-2"></i> Logout
-                                 </a>
-                              </div>
-
-
-                           </div>
-                        </div>
-
-                     </div>
-                  </div>
-                  <!-- End - User dropdown -->
-
-
-                  <div class="vr mx-1 d-none d-md-block"></div>
-
-                  <div class="form-check form-check-alt form-switch mx-md-2">
-                     <input id="headerThemeToggler" class="form-check-input mode-switcher" type="checkbox" role="switch">
-                     <label class="form-check-label ps-1 fw-bold d-none d-md-flex align-items-center " for="headerThemeToggler">
-                        <i class="mode-switcher-icon icon-light demo-psi-sun fs-5"></i>
-                        <i class="mode-switcher-icon icon-dark d-none demo-psi-half-moon"></i>
-                     </label>
-                  </div>
-
-                  <div class="vr mx-1 d-none d-md-block"></div>
-
-                  <!-- Sidebar Toggler -->
-                  <button class="sidebar-toggler header__btn btn btn-icon btn-sm" type="button" aria-label="Sidebar button">
-                     <i class="demo-psi-dot-vertical"></i>
-                  </button>
-
-
-               </div>
-            </div>
-         </div>
-      </header>
-      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <!-- END - HEADER -->
-
-
-      <!-- MAIN NAVIGATION -->
-      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <nav id="mainnav-container" class="mainnav">
-         <div class="mainnav__inner">
-
-            <!-- Navigation menu -->
-            <div class="mainnav__top-content scrollable-content pb-5">
-
-
-               <!-- Profile Widget -->
-               <div id="_dm-mainnavProfile" class="mainnav__widget my-3 hv-outline-parent">
-
-                  <!-- Profile picture  -->
-                  <div class="mininav-toggle text-center py-2">
-                     <img class="mainnav__avatar img-md rounded-circle hv-oc" src="assets/img/profile-photos/1.png" alt="Profile Picture">
-                  </div>
-
-
-                  <div class="mininav-content collapse d-mn-max">
-                     <span data-popper-arrow class="arrow"></span>
-                     <div class="d-grid">
-
-                        <!-- User name and position -->
-                        <button class="mainnav-widget-toggle d-block btn border-0 p-2" data-bs-toggle="collapse" data-bs-target="#usernav" aria-expanded="false" aria-controls="usernav">
-                           <span class="dropdown-toggle d-flex justify-content-center align-items-center">
-                              <h5 class="mb-0 me-3">Aaron Chavez</h5>
-                           </span>
-                           <small class="text-body-secondary">Administrator</small>
-                        </button>
-
-
-                        <!-- Collapsed user menu -->
-                        <div id="usernav" class="nav flex-column collapse">
-                           <a href="#" class="nav-link d-flex justify-content-between align-items-center">
-                              <span><i class="demo-pli-mail fs-5 me-2"></i><span class="ms-1">Messages</span></span>
-                              <span class="badge bg-danger rounded-pill">14</span>
-                           </a>
-                           <a href="#" class="nav-link">
-                              <i class="demo-pli-male fs-5 me-2"></i>
-                              <span class="ms-1">Profile</span>
-                           </a>
-                           <a href="#" class="nav-link">
-                              <i class="demo-pli-gear fs-5 me-2"></i>
-                              <span class="ms-1">Settings</span>
-                           </a>
-                           <a href="#" class="nav-link">
-                              <i class="demo-pli-computer-secure fs-5 me-2"></i>
-                              <span class="ms-1">Lock screen</span>
-                           </a>
-                           <a href="#" class="nav-link">
-                              <i class="demo-pli-unlock fs-5 me-2"></i>
-                              <span class="ms-1">Logout</span>
-                           </a>
-                        </div>
-
-
-                     </div>
-                  </div>
-
-               </div>
-               <!-- End - Profile widget -->
-
-
-               <!-- Navigation Category -->
-               <div class="mainnav__categoriy py-3">
-                  <h6 class="mainnav__caption mt-0 fw-bold">Navigation</h6>
-                  <ul class="mainnav__menu nav flex-column">
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-home fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Dashboard</span>
-                        </a>
-
-                        <!-- Dashboard submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="" class="nav-link">Dashboard 1</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="dashboard-2/" class="nav-link">Dashboard 2</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="dashboard-3/" class="nav-link">Dashboard 3</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Dashboard submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-split-vertical-2 fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Layouts</span>
-                        </a>
-
-                        <!-- Layouts submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="layouts/minimal-navigation/" class="nav-link">Mini Navigation</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/push-navigation/" class="nav-link">Push Navigation</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/slide-navigation/" class="nav-link">Slide Navigation</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/reveal-navigation/" class="nav-link">Reveal Navigation</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/stuck-sidebar/" class="nav-link">Stuck Sidebar</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/pinned-sidebar/" class="nav-link">Pinned Sidebar</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/unite-sidebar/" class="nav-link">Unite Sidebar</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/sticky-header/" class="nav-link">Sticky Header</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="layouts/sticky-navigation/" class="nav-link">Sticky Navigation</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Layouts submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Regular menu link -->
-                     <li class="nav-item">
-                        <a href="widgets/" class="nav-link mininav-toggle"><i class="demo-pli-gear fs-5 me-2"></i>
-
-                           <span class="nav-label mininav-content ms-1">
-                              <span data-popper-arrow class="arrow"></span>
-                              Widgets
-                           </span>
-                        </a>
-                     </li>
-                     <!-- END : Regular menu link -->
-
-
-                  </ul>
-               </div>
-               <!-- END : Navigation Category -->
-
-
-               <!-- Components Category -->
-               <div class="mainnav__categoriy py-3">
-                  <h6 class="mainnav__caption mt-0 fw-bold">Components</h6>
-                  <ul class="mainnav__menu nav flex-column">
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-boot-2 fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Ui Elements</span>
-                        </a>
-
-                        <!-- Ui Elements submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="ui-elements/buttons/" class="nav-link">Buttons</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/cards/" class="nav-link">Cards</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/dropdowns/" class="nav-link">Dropdowns</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/components/" class="nav-link">Components</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/list-group/" class="nav-link">List Group</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/typography/" class="nav-link">Typography</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/modals/" class="nav-link">Modals</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/progress/" class="nav-link">Progress</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/placeholders/" class="nav-link d-flex align-items-center">Placeholders<span class="badge bg-danger ms-auto">NEW</span></a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/tabs-accordions/" class="nav-link">Tabs &amp; Accordions</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="ui-elements/tooltips-popovers/" class="nav-link">Tooltips &amp; Popover</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Ui Elements submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-pen-5 fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Forms</span>
-                        </a>
-
-                        <!-- Forms submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="forms/general/" class="nav-link">General</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="forms/tags/" class="nav-link">Tags</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="forms/date-time-picker/" class="nav-link">Date Time Picker</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="forms/validation/" class="nav-link">Validation</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="forms/wizard/" class="nav-link">Wizard</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="forms/file-uploads/" class="nav-link">File Uploads</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="forms/text-editor/" class="nav-link">Text Editor</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Forms submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link active"><i class="demo-pli-receipt-4 fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Tables</span>
-                        </a>
-
-                        <!-- Tables submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="tables/static-tables/" class="nav-link">Static Tables</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="tables/gridjs/" class="nav-link">Gridjs</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="tables/tabulator/" class="nav-link active">Tabulator</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Tables submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-bar-chart fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Charts</span>
-                        </a>
-
-                        <!-- Charts submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="charts/chart.js/" class="nav-link">ChartJS</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="charts/charts.css/" class="nav-link">ChartsCSS</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="charts/sparklines/" class="nav-link">Sparklines</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Charts submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-repair fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Miscellaneous</span>
-                        </a>
-
-                        <!-- Miscellaneous submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="miscellaneous/timeline/" class="nav-link">Timeline</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="miscellaneous/loader.css/" class="nav-link">Loader.CSS</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="miscellaneous/spinkit/" class="nav-link">Spinkit</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="miscellaneous/clipboard/" class="nav-link">Clipboard</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Miscellaneous submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-
-                  </ul>
-               </div>
-               <!-- END : Components Category -->
-
-
-               <!-- More Category -->
-               <div class="mainnav__categoriy py-3">
-                  <h6 class="mainnav__caption mt-0 fw-bold">More</h6>
-                  <ul class="mainnav__menu nav flex-column">
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-computer-secure fs-5 me-2"></i>
-                           <span class="nav-label ms-1">App Views</span>
-                        </a>
-
-                        <!-- App Views submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="app-views/file-manager/" class="nav-link">File Manager</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="app-views/users/" class="nav-link">Users</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="app-views/users-2/" class="nav-link">Users 2</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="app-views/profile/" class="nav-link">Profile</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="app-views/calendar/" class="nav-link">Calendar</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="app-views/taskboard/" class="nav-link">Taskboard</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="app-views/chat/" class="nav-link">Chat</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="app-views/contact-us/" class="nav-link">Contact Us</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : App Views submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-speech-bubble-5 fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Blog Apps</span>
-                        </a>
-
-                        <!-- Blog Apps submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="blog-apps/blog/" class="nav-link">Blog</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="blog-apps/blog-list/" class="nav-link">Blog List</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="blog-apps/blog-list-2/" class="nav-link">Blog List 2</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="blog-apps/blog-article/" class="nav-link">Blog Article</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="blog-apps/manage-posts/" class="nav-link">Manage Posts</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="blog-apps/add-edit-posts/" class="nav-link">Add Edit Posts</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Blog Apps submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-mail fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Email</span>
-                        </a>
-
-                        <!-- Email submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="email/inbox/" class="nav-link">Inbox</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="email/view-message/" class="nav-link">View Message</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="email/compose-message/" class="nav-link">Compose Message</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Email submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-file-html fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Other Pages</span>
-                        </a>
-
-                        <!-- Other Pages submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="other-pages/blank-page/" class="nav-link">Blank Page</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="other-pages/invoice/" class="nav-link">Invoice</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="other-pages/search-results/" class="nav-link">Search Results</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="other-pages/faq/" class="nav-link">FAQ</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="other-pages/pricing-tables/" class="nav-link">Pricing Tables</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="other-pages/error-404/" class="nav-link">Error 404</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="other-pages/error-500/" class="nav-link">Error 500</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Other Pages submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-window-2 fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Front Pages</span>
-                        </a>
-
-                        <!-- Front Pages submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="front-pages/error-404/" class="nav-link">Error 404</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="front-pages/error-500/" class="nav-link">Error 500</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="front-pages/maintenance/" class="nav-link">Maintenance</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="front-pages/login/" class="nav-link">Login</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="front-pages/register/" class="nav-link">Register</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="front-pages/password-reminder/" class="nav-link">Password Reminder</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="front-pages/lock-screen/" class="nav-link">Lock Screen</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Front Pages submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-tactic fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Menu Levels</span>
-                        </a>
-
-                        <!-- Menu Levels submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="#" class="nav-link">Menu Link</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="#" class="nav-link">Menu Link</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="#" class="nav-link">Menu Link</a>
-                           </li>
-                           <li class="nav-item has-sub">
-                              <a href="#" class="mininav-toggle nav-link collapsed">Submenu</a>
-                              <ul class="mininav-content nav collapse">
-                                 <li data-popper-arrow class="arrow"></li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li class="nav-item has-sub">
-                              <a href="#" class="mininav-toggle nav-link collapsed">Submenu</a>
-                              <ul class="mininav-content nav collapse">
-                                 <li data-popper-arrow class="arrow"></li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Menu Link</a>
-                                 </li>
-                              </ul>
-                           </li>
-                        </ul>
-                        <!-- END : Menu Levels submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-
-                  </ul>
-               </div>
-               <!-- END : More Category -->
-
-
-               <!-- Extras Category -->
-               <div class="mainnav__categoriy py-3">
-                  <h6 class="mainnav__caption mt-0 fw-bold">Extras</h6>
-                  <ul class="mainnav__menu nav flex-column">
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-happy fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Icons Pack</span>
-                        </a>
-
-                        <!-- Icons Pack submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="icons-pack/ionicons/" class="nav-link">Ionicons</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="icons-pack/themify-icons/" class="nav-link">Themify Icons</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="icons-pack/flag-icons/" class="nav-link">Flag Icons</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="icons-pack/weather-icons/" class="nav-link">Weather Icons</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Icons Pack submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-medal-2 fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Premium Icons</span>
-                        </a>
-
-                        <!-- Premium Icons submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="premium-icons/line-icons-pack/" class="nav-link">Line Icons Pack</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="premium-icons/solid-icons-pack/" class="nav-link">Solid Icons Pack</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Premium Icons submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-                     <!-- Link with submenu -->
-                     <li class="nav-item has-sub">
-
-
-                        <a href="#" class="mininav-toggle nav-link collapsed"><i class="demo-pli-love fs-5 me-2"></i>
-                           <span class="nav-label ms-1">Helper Classes</span>
-                        </a>
-
-                        <!-- Helper Classes submenu list -->
-                        <ul class="mininav-content nav collapse">
-                           <li data-popper-arrow class="arrow"></li>
-                           <li class="nav-item">
-                              <a href="helper-classes/background/" class="nav-link">Background</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="helper-classes/link/" class="nav-link">Link</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="helper-classes/text/" class="nav-link">Text</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="helper-classes/borders/" class="nav-link">Borders</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="helper-classes/images/" class="nav-link">Images</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="helper-classes/sizing/" class="nav-link">Sizing</a>
-                           </li>
-                           <li class="nav-item">
-                              <a href="helper-classes/more/" class="nav-link">More</a>
-                           </li>
-
-                        </ul>
-                        <!-- END : Helper Classes submenu list -->
-
-                     </li>
-                     <!-- END : Link with submenu -->
-
-
-                  </ul>
-               </div>
-               <!-- END : Extras Category -->
-
-
-               <!-- Widget -->
-               <div class="mainnav__widget">
-
-                  <!-- Widget buttton form small navigation -->
-                  <div class="mininav-toggle text-center py-2 d-mn-min">
-                     <i class="demo-pli-monitor-2"></i>
-                  </div>
-
-                  <div class="d-mn-max mt-5"></div>
-
-                  <!-- Widget content -->
-                  <div class="mininav-content collapse d-mn-max">
-                     <span data-popper-arrow class="arrow"></span>
-                     <h6 class="mainnav__caption fw-bold">Server Status</h6>
-                     <ul class="list-group list-group-borderless">
-                        <li class="list-group-item text-reset">
-                           <div class="d-flex justify-content-between align-items-start">
-                              <p class="mb-2 me-auto">CPU Usage</p>
-                              <span class="badge bg-info rounded">35%</span>
-                           </div>
-                           <div class="progress progress-md">
-                              <div class="progress-bar bg-info" role="progressbar" style="width: 35%" aria-label="CPU Progress" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                           </div>
-                        </li>
-                        <li class="list-group-item text-reset">
-                           <div class="d-flex justify-content-between align-items-start">
-                              <p class="mb-2 me-auto">Bandwidth</p>
-                              <span class="badge bg-warning rounded">73%</span>
-                           </div>
-                           <div class="progress progress-md">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 73%" aria-label="Bandwidth Progress" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"></div>
-                           </div>
-                        </li>
-                     </ul>
-                     <div class="d-grid px-3 mt-3">
-                        <a href="#" class="btn btn-sm btn-success">View Details</a>
-                     </div>
-                  </div>
-               </div>
-               <!-- End - Profile widget -->
-
-
-            </div>
-            <!-- End - Navigation menu -->
-
-
-            <!-- Bottom navigation menu -->
-            <div class="mainnav__bottom-content border-top pb-2">
-               <ul id="mainnav" class="mainnav__menu nav flex-column">
-                  <li class="nav-item has-sub">
-                     <a href="#" class="nav-link mininav-toggle collapsed" aria-expanded="false">
-                        <i class="demo-pli-unlock fs-5 me-2"></i>
-                        <span class="nav-label ms-1">Logout</span>
-                     </a>
-                     <ul class="mininav-content nav flex-column collapse">
-                        <li data-popper-arrow class="arrow"></li>
-                        <li class="nav-item">
-                           <a href="#" class="nav-link">This device only</a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="#" class="nav-link">All Devices</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Lock screen</a>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-            <!-- End - Bottom navigation menu -->
-
-
-         </div>
-      </nav>
-      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <!-- END - MAIN NAVIGATION -->
-
+      <?php
+      include 'header.php';
+      include 'mainnav.php'; 
+      ?>
 
       <!-- SIDEBAR -->
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -2432,20 +1222,199 @@
    <!-- END - OFFCANVAS [ DEMO ] -->
 
 
-   <!-- JAVASCRIPTS -->
-   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-
-   <!-- Bootstrap JS [ OPTIONAL ] -->
-   <script src="assets/js/bootstrap.min.js"></script>
-
-
-   <!-- Nifty JS [ OPTIONAL ] -->
-   <script src="assets/js/nifty.min.js"></script>
+<?php
+   include('javascript.php');
+?>
 
 
    <!-- Tabulator scripts [ OPTIONAL ] -->
-   <script src="assets/pages/tabulator.min.4ea3bc3ed82b9a9e49db087ebf1d76bab14134fbdc083dd065781193637499e6.js"></script>
+   <script src="assets/vendors/tabulator/js/tabulator.min.js"></script>
+   <script>
+      document.addEventListener("DOMContentLoaded", () => {
+         const t = [
+            { id: 1, name: "Billy Bob", age: "12", gender: "Male", height: 1, col: "red", dob: "", cheese: 1 },
+            { id: 2, name: "Mary May", age: "14", gender: "Female", height: 2, col: "blue", dob: "14/05/1982", cheese: !0 },
+            { id: 3, name: "Christine Lobowski", age: "42", gender: "Female", height: 0, col: "green", dob: "22/05/1982", cheese: "true" },
+            { id: 4, name: "Brendon Philips", age: "125", gender: "Male", height: 1, col: "orange", dob: "01/08/1980" },
+            { id: 5, name: "Margret Marmajuke", age: "16", gender: "Female", height: 5, col: "yellow", dob: "31/01/1999" },
+         ];
+         let e = [
+            { id: 6, name: "Frank Harbours", age: "12", gender: "Male", height: 1, col: "red", dob: "", cheese: 1 },
+            { id: 7, name: "Gemma Jane", age: "1", gender: "Female", height: 2, col: "blue", dob: "14/05/1982", cheese: !0 },
+            { id: 8, name: "Margret Marmajuke", gender: "Female", age: "42", height: 0, col: "green", dob: "22/05/1982", cheese: "true" },
+            { id: 9, name: "James Newman", age: "125", gender: "Male", height: 1, col: "orange", dob: "01/08/1980" },
+            { id: 10, name: "Brendon Philips", age: "16", gender: "Male", height: 5, col: "yellow", dob: "31/01/1999" },
+         ];
+         e = t.concat(e);
+         const v = new Tabulator("#_dm-tabulatorBasic", { data: t, autoColumns: !0, layout: "fitColumns" }),
+            g = new Tabulator("#_dm-tabulatorResizableColumns", {
+                  data: t,
+                  layout: "fitColumns",
+                  columns: [
+                     { title: "Name", field: "name", sorter: "string", resizable: !0, width: 200, editor: !0 },
+                     { title: "Age", field: "age", sorter: "number", resizable: !0, hozAlign: "center", headerHozAlign: "center" },
+                     { title: "Gender", field: "gender", sorter: "string", resizable: !0 },
+                     { title: "Height", field: "height", resizable: !0, hozAlign: "center", width: 100 },
+                     { title: "Favourite Color", field: "col", sorter: "string", resizable: !0 },
+                     { title: "Date Of Birth", field: "dob", sorter: "date", resizable: !0, hozAlign: "center" },
+                     { title: "Cheese Preference", field: "cheese", sorter: "boolean", resizable: !0, hozAlign: "center" },
+                  ],
+            }),
+            l = new Tabulator("#_dm-tabulatorStriped", {
+                  data: t,
+                  layout: "fitColumns",
+                  columns: [
+                     { title: "Name", field: "name", sorter: "string" },
+                     { title: "Age", field: "age", sorter: "number", hozAlign: "center", headerHozAlign: "center" },
+                     { title: "Gender", field: "gender", sorter: "string", hozAlign: "center", headerHozAlign: "center" },
+                     { title: "Favourite Color", field: "col", sorter: "string", hozAlign: "center", cssClass: "text-capitalize" },
+                  ],
+            }),
+            p = new Tabulator("#_dm-tabulatorBorderedTable", {
+                  data: t,
+                  layout: "fitColumns",
+                  columns: [
+                     { title: "Name", field: "name", sorter: "string" },
+                     { title: "Age", field: "age", sorter: "number", hozAlign: "center", headerHozAlign: "center" },
+                     { title: "Gender", field: "gender", sorter: "string", hozAlign: "center", headerHozAlign: "center" },
+                     { title: "Favourite Color", field: "col", sorter: "string", hozAlign: "center", cssClass: "text-capitalize" },
+                  ],
+            }),
+            f = new Tabulator("#_dm-tabulatorPagination", {
+                  data: e,
+                  layout: "fitColumns",
+                  pagination: "local",
+                  paginationSize: 5,
+                  paginationSizeSelector: [3, 5, 7, 10],
+                  columns: [
+                     { title: "Name", field: "name", sorter: "string" },
+                     { title: "Age", field: "age", sorter: "number" },
+                     { title: "Gender", field: "gender", sorter: "string" },
+                     { title: "Favourite Color", field: "col", sorter: "string" },
+                  ],
+            }),
+            m = new Tabulator("#_dm-tabulatorEditData", {
+                  data: e,
+                  layout: "fitColumns",
+                  pagination: "local",
+                  paginationSize: 5,
+                  paginationSizeSelector: [3, 5, 7, 10],
+                  columns: [
+                     { title: "Name", field: "name", sorter: "string", width: 200, editor: !0 },
+                     { title: "Age", field: "age", sorter: "number" },
+                     { title: "Gender", field: "gender", sorter: "string" },
+                     { title: "Favourite Color", field: "col", sorter: "string" },
+                  ],
+            }),
+            h = new Tabulator("#_dm-tabulatorCollapsedList", {
+                  data: e,
+                  height: "300px",
+                  layout: "fitDataFill",
+                  responsiveLayout: "collapse",
+                  columns: [
+                     { formatter: "responsiveCollapse", width: 40, minWidth: 40, hozAlign: "center", resizable: !1, headerSort: !1 },
+                     { title: "Name", field: "name", width: 250, responsive: 0 },
+                     { title: "Age", field: "age", hozAlign: "center", headerHozAlign: "center", sorter: "number", width: 150 },
+                     { title: "Gender", field: "gender", width: 150, responsive: 2 },
+                     { title: "Height", field: "height", hozAlign: "center", headerHozAlign: "center", width: 150 },
+                     { title: "Favourite Color", field: "col", width: 150 },
+                     { title: "Date Of Birth", field: "dob", hozAlign: "center", sorter: "date", width: 150 },
+                     { title: "Driver", field: "car", hozAlign: "center", width: 150 },
+                  ],
+            }),
+            d = new Tabulator("#_dm-tabulatorVerticalHeaders", {
+                  data: e,
+                  height: "315px",
+                  columns: [
+                     { title: "Name", field: "name", headerSort: !1, headerVertical: !0 },
+                     { title: "Progress", field: "progress", sorter: "number", hozAlign: "left", formatter: "progress", editable: !0, headerSort: !1, headerVertical: !0 },
+                     { title: "Gender", field: "gender", headerSort: !1, headerVertical: !0 },
+                     { title: "Rating", field: "rating", hozAlign: "center", headerSort: !1, headerVertical: !0 },
+                     { title: "Date Of Birth", field: "dob", hozAlign: "center", sorter: "date", headerSort: !1, headerVertical: !0 },
+                     { title: "Driver", field: "car", hozAlign: "center", formatter: "tickCross", headerSort: !1, headerVertical: !0 },
+                  ],
+            }),
+            r = () => '<i class="demo-psi-question fs-5"></i>',
+            u = new Tabulator("#_dm-tabulatorFormatData", {
+                  data: e,
+                  layout: "fitColumns",
+                  height: "300px",
+                  columns: [
+                     {
+                        title: "Who",
+                        formatter: r,
+                        width: 85,
+                        hozAlign: "center",
+                        cellClick: function (e, t) {
+                              alert("Printing row data for: " + t.getRow().getData().name);
+                        },
+                     },
+                     { title: "Name", field: "name", sorter: "string", width: 200, editor: !0 },
+                     { title: "Age", field: "age", sorter: "number", hozAlign: "left", formatter: "progress", cssClass: "tabulator-progress" },
+                     { title: "Gender", field: "gender", sorter: "string", hozAlign: "center" },
+                     { title: "Height", field: "height", formatter: "star", hozAlign: "center", width: 100 },
+                     { title: "Favourite Color", field: "col", hozAlign: "center", sorter: "string", formatter: "color" },
+                     { title: "Date Of Birth", field: "dob", sorter: "date", hozAlign: "center" },
+                     { title: "Cheese Preference", field: "cheese", sorter: "boolean", hozAlign: "center", formatter: "tickCross" },
+                  ],
+            }),
+            i = document.getElementById("_dm-filterField"),
+            n = document.getElementById("_dm-filterType"),
+            s = document.getElementById("_dm-filterValue");
+         function c(e) {
+            return e.car && e.rating < 3;
+         }
+         function o() {
+            let e = i.options[i.selectedIndex].value,
+                  t = n.options[n.selectedIndex].value;
+            const o = e == "function" ? c : e;
+            e == "function" ? ((n.disabled = !0), (s.disabled = !0)) : ((n.disabled = !1), (s.disabled = !1)), e && a.setFilter(o, t, s.value);
+         }
+         document.getElementById("_dm-filterField").addEventListener("change", o),
+            document.getElementById("_dm-filterType").addEventListener("change", o),
+            document.getElementById("_dm-filterValue").addEventListener("keyup", o),
+            document.getElementById("_dm-filterClear").addEventListener("click", function () {
+                  (i.value = "none"), (n.value = "like"), (s.value = ""), a.clearFilter();
+            });
+         const a = new Tabulator("#_dm-tabulatorFilter", {
+            data: [
+                  { id: 1, name: "Oli Bob", progress: 12, location: "United Kingdom", gender: "Male", rating: 1, col: "red", dob: "14/04/1984", car: 1, lucky_no: 5, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  { id: 2, name: "Mary May", progress: 7, location: "Germany", gender: "Female", rating: 2, col: "blue", dob: "14/05/1982", car: !0, lucky_no: 10, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  {
+                     id: 3,
+                     name: "Christine Lobowski",
+                     progress: 42,
+                     location: "France",
+                     gender: "Female",
+                     rating: 0,
+                     col: "green",
+                     dob: "22/05/1982",
+                     car: "true",
+                     lucky_no: 12,
+                     lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing ",
+                  },
+                  { id: 4, name: "Brendon Philips", progress: 100, location: "USA", gender: "Male", rating: 1, col: "orange", dob: "01/08/1980", car: !1, lucky_no: 18, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  { id: 5, name: "Margret Marmajuke", progress: 16, location: "Canada", gender: "Female", rating: 5, col: "yellow", dob: "31/01/1999", car: !1, lucky_no: 33, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  { id: 6, name: "Frank Harbours", progress: 38, location: "Russia", gender: "Male", rating: 4, col: "red", dob: "12/05/1966", car: 1, lucky_no: 2, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  { id: 7, name: "Jamie Newhart", progress: 23, location: "India", gender: "Male", rating: 3, col: "green", dob: "14/05/1985", car: !0, lucky_no: 63, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  { id: 8, name: "Gemma Jane", progress: 60, location: "China", gender: "Female", rating: 0, col: "red", dob: "22/05/1982", car: "true", lucky_no: 72, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  { id: 9, name: "Emily Sykes", progress: 42, location: "South Korea", gender: "Female", rating: 1, col: "maroon", dob: "11/11/1970", car: !1, lucky_no: 44, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+                  { id: 10, name: "James Newman", progress: 73, location: "Japan", gender: "Male", rating: 5, col: "red", dob: "22/03/1998", car: !1, lucky_no: 9, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
+            ],
+            height: "300px",
+            layout: "fitColumns",
+            columns: [
+                  { title: "Name", field: "name", width: 200 },
+                  { title: "Progress", field: "progress", formatter: "progress", cssClass: "tabulator-progress", sorter: "number" },
+                  { title: "Gender", field: "gender" },
+                  { title: "Rating", field: "rating", formatter: "star", hozAlign: "center", width: 100 },
+                  { title: "Favourite Color", field: "col" },
+                  { title: "Date Of Birth", field: "dob", hozAlign: "center", sorter: "date" },
+                  { title: "Driver", field: "car", hozAlign: "center", formatter: "tickCross" },
+            ],
+         });
+      });
+   </script>
 
 
 </body>
