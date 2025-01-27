@@ -42,6 +42,7 @@ include_once 'includes/env.php';
    <style>
    :root{
       --fc-today-bg-color:#f5a338;
+      --bs-popover-max-width:600px;
    }
     #calendar {
         /* max-width: 1100px;
@@ -82,6 +83,13 @@ include_once 'includes/env.php';
     .gcal-event .fc-event-title:hover {
         background-color: mistyrose;
         overflow:visible;
+    }
+    .popover {
+        max-width: 600px;
+    }
+    .popover-header {
+        font-size: 2.0em;
+        font-weight: bold;
     }
     </style>
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -315,6 +323,7 @@ include_once 'includes/env.php';
                }
 
                var title = arg.event.title;
+               var description = arg.event.description;
                var location = "at " + arg.event.extendedProps.location;
                if (!arg.event.extendedProps.location) {
                   location = '';
@@ -324,17 +333,19 @@ include_once 'includes/env.php';
                $(arg.el).popover({
                   title: title,
                   // placement:'top',
-                  trigger : 'hover',
+                  trigger : 'click',
                   html: true,
                   // content: "Start: "+startTime + "<br/>"+ "End: " + endTime,
+                  content: contentTemplate,
                   container:'body',
-                  template: '<div class="popover" style="width: 400px !important; max-width: 600px !important;" role="tooltip">\
-                  <div class="arrow"></div>\
-                  <h3 class="popover-title"></h3>\
-                  <div style="padding: 15px;"></div>\
-                  <div style="width: 100%; font-style: italic; font-size: 10px; margin-bottom: 10px; margin-top: -5px;"><p>'+title+'</p></div>\
-                  '+contentTemplate+'\
-                  </div>',
+                  template: '<div class="popover" role="tooltip"><div class="arrow"></div><h2 class="popover-header"></h2><div class="popover-body"></div></div>',
+                //   template: '<div class="popover" style="width: 600px !important; max-width: 600px !important;" role="tooltip">\
+                //   <div class="arrow"></div>\
+                //   <h3 class="popover-title"></h3>\
+                //   <div style="padding: 15px;"></div>\
+                //   <div style="width: 100%; font-style: italic; font-size: 10px; margin-bottom: 10px; margin-top: -5px;"><p>'+title+'</p></div>\
+                //   '+contentTemplate+'\
+                //   </div>',
                   placement: function (context, source) {
                      var position = $(source).position();
                      // console.log(position.left);
