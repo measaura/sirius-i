@@ -6,3 +6,4 @@ nifty/
 *.old
 error_log
 blankpage.php
+Database/*.sql
