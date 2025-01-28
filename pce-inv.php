@@ -87,10 +87,10 @@ include_once 'includes/db_func.php';
                <!-- END : Breadcrumb -->
 
 
-               <h1 class="page-title mb-0 mt-2">FCP Inventory</h1>
+               <h1 class="page-title mb-0 mt-2">PCE Inventory</h1>
 
                <p class="lead">
-                  Flow Control Products Inventory.
+                  Oressure Control Equipments Inventory.
                </p>
             </div>
 
@@ -207,7 +207,7 @@ include_once 'includes/db_func.php';
          const f = new Tabulator("#_dm-tabulatorPagination", {
                   // data: e,
                   ajaxURL: "func/get_data.php",
-                  ajaxParams: { type: "fcp" },
+                  ajaxParams: { type: "pce" },
                   layout: "fitColumns",
                   pagination: "true",
                   paginationMode: "remote",
@@ -215,13 +215,14 @@ include_once 'includes/db_func.php';
                   paginationSizeSelector: [10, 25, 50, 100],
                   columns: [
                      { title: "Product Name", field: "item", sorter: "string" },
-                     // { title: "End Connection", field: "end_conn", sorter: "string" },
-                     { title: "Pin Size", field: "pin_size", sorter: "string" },
-                     { title: "Seal Diam", field: "pin_seal", sorter: "string" },
-                     { title: "Box Size", field: "box_size", sorter: "string" },
-                     { title: "Box Seal", field: "box_seal", sorter: "string" },
-                     { title: "Bore Diameter", field: "bore_diam", sorter: "number" },
-                     { title: "Length", field: "length", sorter: "number" },
+                     { title: "Nominal Size", field: "nom_size", sorter: "string" },
+                     { title: "End Connection", field: "end_conn", sorter: "string" },
+                     // { title: "Pin Size", field: "pin_size", sorter: "string" },
+                     // { title: "Pin Seal", field: "pin_seal", sorter: "string" },
+                     // { title: "Box Size", field: "box_size", sorter: "string" },
+                     // { title: "Box Seal", field: "box_seal", sorter: "string" },
+                     // { title: "Bore Diameter", field: "bore_diam", sorter: "number" },
+                     // { title: "Length", field: "length", sorter: "number" },
                      { title: "OEM Serial", field: "oem_serial", sorter: "string" },
                      { title: "SVP Serial", field: "svp_serial", sorter: "string" },
                      { title: "OEM", field: "oem", sorter: "string" },
