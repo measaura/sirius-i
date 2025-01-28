@@ -230,7 +230,7 @@ include_once 'includes/env.php';
          };
 
          // xhttp.open("GET", "filename", true);
-         xmlhttp.open("GET", "get_events.php?emp_id=", true);
+         xmlhttp.open("GET", "func/get_events.php?emp_id=", true);
                
          // Sends the request to the server
          xmlhttp.send();
@@ -250,7 +250,7 @@ include_once 'includes/env.php';
                   googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com',
                   className: 'gcal-event' // an option!
                },
-               'get_events.php'
+               'func/get_events.php'
          ],
          // events: 'get_events.php',
          headerToolbar: {
