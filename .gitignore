@@ -7,3 +7,4 @@ nifty/
 error_log
 blankpage.php
 Database/*.sql
+.DS_Store
