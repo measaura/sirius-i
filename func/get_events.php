@@ -20,7 +20,7 @@
 
 header("Content-Type: application/json; charset=UTF-8");
 // ini_set('display_errors', 1);
-require_once 'db_func.php';
+require_once '../includes/db_func.php';
 // foreach($_SESSION as $key=>$value){
 //     if(is_array($value)){
 //         echo "ARRAY found<br/>\n";
