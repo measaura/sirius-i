@@ -134,7 +134,7 @@ include_once 'includes/db_func.php';
                      </div>
                      <div class="card-body">
                         <!-- Pagination -->
-                        <div id="_dm-tabulatorPagination" class="table table-striped m-0"></div>
+                        <div id="_dm-tabulatorPagination" class="table table-striped table-bordered m-0"></div>
                         <!-- END : Pagination -->
 
 
@@ -202,11 +202,23 @@ include_once 'includes/db_func.php';
                   columns: [
                      { title: "Product Name", field: "item", sorter: "string" },
                      // { title: "End Connection", field: "end_conn", sorter: "string" },
-                     { title: "Pin Size", field: "pin_size", sorter: "string" },
-                     { title: "Seal Diam", field: "pin_seal", sorter: "string" },
-                     { title: "Box Size", field: "box_size", sorter: "string" },
-                     { title: "Box Seal", field: "box_seal", sorter: "string" },
-                     { title: "Bore Diameter", field: "bore_diam", sorter: "number" },
+                     {
+                        title: "PIN Union",
+                        columnVertAlign:"center",
+                        columns: [
+                           { title: "Size", field: "pin_size", sorter: "string" },
+                           { title: "Seal Dia.", field: "pin_seal", sorter: "string" },
+                        ],
+                     },
+                     {
+                        title: "Box Union",
+                        columnVertAlign:"center",
+                        columns: [
+                           { title: "Size", field: "box_size", sorter: "string" },
+                           { title: "Seal Dia.", field: "box_seal", sorter: "string" },
+                        ],
+                     },
+                     { title: "Bore Diameter", field: "bore_diam", hozAlign:"center", sorter: "number" },
                      { title: "Length", field: "length", sorter: "number" },
                      { title: "OEM Serial", field: "oem_serial", sorter: "string" },
                      { title: "SVP Serial", field: "svp_serial", sorter: "string" },
