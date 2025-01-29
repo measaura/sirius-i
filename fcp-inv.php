@@ -79,7 +79,7 @@ include_once 'includes/db_func.php';
                <!-- Breadcrumb -->
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item"><a href="">Home</a></li>
+                     <li class="breadcrumb-item"><a href="main.php">Home</a></li>
                      <!-- <li class="breadcrumb-item"><a href="tables/">Tables</a></li> -->
                      <li class="breadcrumb-item active" aria-current="page">FCP Inventory</li>
                   </ol>
@@ -189,26 +189,12 @@ include_once 'includes/db_func.php';
    <script src="assets/vendors/tabulator/js/tabulator.min.js"></script>
    <script>
       document.addEventListener("DOMContentLoaded", () => {
-         // const t = [
-         //    { id: 1, name: "Billy Bob", age: "12", gender: "Male", height: 1, col: "red", dob: "", cheese: 1 },
-         //    { id: 2, name: "Mary May", age: "14", gender: "Female", height: 2, col: "blue", dob: "14/05/1982", cheese: !0 },
-         //    { id: 3, name: "Christine Lobowski", age: "42", gender: "Female", height: 0, col: "green", dob: "22/05/1982", cheese: "true" },
-         //    { id: 4, name: "Brendon Philips", age: "125", gender: "Male", height: 1, col: "orange", dob: "01/08/1980" },
-         //    { id: 5, name: "Margret Marmajuke", age: "16", gender: "Female", height: 5, col: "yellow", dob: "31/01/1999" },
-         // ];
-         // let e = [
-         //    { id: 6, name: "Frank Harbours", age: "12", gender: "Male", height: 1, col: "red", dob: "", cheese: 1 },
-         //    { id: 7, name: "Gemma Jane", age: "1", gender: "Female", height: 2, col: "blue", dob: "14/05/1982", cheese: !0 },
-         //    { id: 8, name: "Margret Marmajuke", gender: "Female", age: "42", height: 0, col: "green", dob: "22/05/1982", cheese: "true" },
-         //    { id: 9, name: "James Newman", age: "125", gender: "Male", height: 1, col: "orange", dob: "01/08/1980" },
-         //    { id: 10, name: "Brendon Philips", age: "16", gender: "Male", height: 5, col: "yellow", dob: "31/01/1999" },
-         // ];
-         // e = t.concat(e);
          const f = new Tabulator("#_dm-tabulatorPagination", {
                   // data: e,
                   ajaxURL: "func/get_data.php",
                   ajaxParams: { type: "fcp" },
-                  layout: "fitColumns",
+                  layout: "fitDataStretch",
+                  layoutColumnsOnNewData:true,
                   pagination: "true",
                   paginationMode: "remote",
                   paginationSize: 10,
@@ -247,43 +233,6 @@ include_once 'includes/db_func.php';
             document.getElementById("_dm-filterClear").addEventListener("click", function () {
                   (i.value = "none"), (n.value = "like"), (s.value = ""), f.clearFilter();
             });
-         // const a = new Tabulator("#_dm-tabulatorFilter", {
-         //    data: [
-         //          { id: 1, name: "Oli Bob", progress: 12, location: "United Kingdom", gender: "Male", rating: 1, col: "red", dob: "14/04/1984", car: 1, lucky_no: 5, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          { id: 2, name: "Mary May", progress: 7, location: "Germany", gender: "Female", rating: 2, col: "blue", dob: "14/05/1982", car: !0, lucky_no: 10, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          {
-         //             id: 3,
-         //             name: "Christine Lobowski",
-         //             progress: 42,
-         //             location: "France",
-         //             gender: "Female",
-         //             rating: 0,
-         //             col: "green",
-         //             dob: "22/05/1982",
-         //             car: "true",
-         //             lucky_no: 12,
-         //             lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing ",
-         //          },
-         //          { id: 4, name: "Brendon Philips", progress: 100, location: "USA", gender: "Male", rating: 1, col: "orange", dob: "01/08/1980", car: !1, lucky_no: 18, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          { id: 5, name: "Margret Marmajuke", progress: 16, location: "Canada", gender: "Female", rating: 5, col: "yellow", dob: "31/01/1999", car: !1, lucky_no: 33, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          { id: 6, name: "Frank Harbours", progress: 38, location: "Russia", gender: "Male", rating: 4, col: "red", dob: "12/05/1966", car: 1, lucky_no: 2, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          { id: 7, name: "Jamie Newhart", progress: 23, location: "India", gender: "Male", rating: 3, col: "green", dob: "14/05/1985", car: !0, lucky_no: 63, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          { id: 8, name: "Gemma Jane", progress: 60, location: "China", gender: "Female", rating: 0, col: "red", dob: "22/05/1982", car: "true", lucky_no: 72, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          { id: 9, name: "Emily Sykes", progress: 42, location: "South Korea", gender: "Female", rating: 1, col: "maroon", dob: "11/11/1970", car: !1, lucky_no: 44, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //          { id: 10, name: "James Newman", progress: 73, location: "Japan", gender: "Male", rating: 5, col: "red", dob: "22/03/1998", car: !1, lucky_no: 9, lorem: "Lorem ipsum dolor sit amet, elit consectetur adipisicing " },
-         //    ],
-         //    height: "300px",
-         //    layout: "fitColumns",
-         //    columns: [
-         //          { title: "Name", field: "name", width: 200 },
-         //          { title: "Progress", field: "progress", formatter: "progress", cssClass: "tabulator-progress", sorter: "number" },
-         //          { title: "Gender", field: "gender" },
-         //          { title: "Rating", field: "rating", formatter: "star", hozAlign: "center", width: 100 },
-         //          { title: "Favourite Color", field: "col" },
-         //          { title: "Date Of Birth", field: "dob", hozAlign: "center", sorter: "date" },
-         //          { title: "Driver", field: "car", hozAlign: "center", formatter: "tickCross" },
-         //    ],
-         // });
       });
    </script>
 
