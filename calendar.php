@@ -333,7 +333,7 @@ include_once 'includes/env.php';
                $(arg.el).popover({
                   title: title,
                   // placement:'top',
-                  trigger : 'click',
+                  trigger : 'hover',
                   html: true,
                   // content: "Start: "+startTime + "<br/>"+ "End: " + endTime,
                   content: contentTemplate,
