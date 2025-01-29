@@ -12,10 +12,8 @@ $offset = ($page - 1) * $size;
 
 // Query to get total number of rows
 $total_sql = "SELECT COUNT(*) as total FROM inventory";
-if($type == 'fcp') {
-    $total_sql .= " WHERE nom_size IS NULL AND end_conn IS NULL";
-} elseif($type == 'pce') {
-    $total_sql .= " WHERE pin_size IS NULL AND box_size IS NULL AND bore_diam IS NULL";
+if($type != 'all') {
+    $total_sql .= " WHERE item_type = '$type'";
 }
 $total_result = $conn->query($total_sql);
 $total_row = $total_result->fetch_assoc();
@@ -32,10 +30,8 @@ FROM inventory i
  LEFT JOIN list_unionseal pinls ON i.pin_seal = pinls.unionseal_id
  LEFT JOIN list_union boxlu ON i.pin_size = boxlu.union_id
  LEFT JOIN list_unionseal boxls ON i.pin_seal = boxls.unionseal_id";
-if($type == 'fcp') {
-    $sql .= " WHERE nom_size IS NULL AND end_conn IS NULL";
-} elseif($type == 'pce') {
-    $sql .= " WHERE pin_size IS NULL AND box_size IS NULL AND bore_diam IS NULL";
+if($type != 'all') {
+    $sql .= " WHERE i.item_type = '$type'";
 }
 $sql .= " LIMIT $size OFFSET $offset";
 $result = $conn->query($sql);
