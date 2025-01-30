@@ -1,6 +1,7 @@
 <?php
 include_once("includes/db_func.php");
-$query = "SELECT id, title, href, parent_id, sublevel, icon FROM sidebar_menu ORDER BY `order` ASC, title";
+$uac = $_SESSION['uac'];
+$query = "SELECT id, title, href, parent_id, sublevel, icon FROM sidebar_menu WHERE access_level <= $uac ORDER BY `order` ASC, title";
 // echo $query;
 $result = mysqli_query($conn, $query) or die("database error:" . mysqli_error($conn));
 // Create an array to conatin a list of items and parents
