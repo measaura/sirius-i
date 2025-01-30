@@ -32,7 +32,7 @@ require_once '../includes/db_func.php';
 
 //     }
 // }
-if(isset($_SESSION['username']) && $_SESSION['username'] != '' && $_SESSION['uac']>0){
+if(isset($_SESSION['username']) && $_SESSION['username'] != '' && $_SESSION['uac']>=0){
     $json = array();
     $i=0;
     // $sql="SELECT * FROM calendar";
