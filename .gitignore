@@ -1,6 +1,7 @@
 includes/db_func.php
 assets/img/uploads/
 assets/references/
+assets/uploads/
 .vscode/
 nifty/
 *.old
