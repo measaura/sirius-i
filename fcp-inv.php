@@ -204,7 +204,7 @@ include_once 'includes/db_func.php';
                      // { title: "End Connection", field: "end_conn", sorter: "string" },
                      {
                         title: "PIN Union",
-                        columnVertAlign:"center",
+                        headerHozAlign:"center",
                         columns: [
                            { title: "Size", field: "pin_size", sorter: "string" },
                            { title: "Seal Dia.", field: "pin_seal", sorter: "string" },
@@ -212,7 +212,7 @@ include_once 'includes/db_func.php';
                      },
                      {
                         title: "Box Union",
-                        columnVertAlign:"center",
+                        headerHozAlign:"center",
                         columns: [
                            { title: "Size", field: "box_size", sorter: "string" },
                            { title: "Seal Dia.", field: "box_seal", sorter: "string" },
