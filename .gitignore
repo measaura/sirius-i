@@ -5,7 +5,7 @@ assets/uploads/
 .vscode/
 nifty/
 *.old
-error_log
+logs/
 blankpage.php
 Database/*.sql
 .DS_Store
