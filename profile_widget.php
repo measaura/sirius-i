@@ -25,7 +25,7 @@
          <small class="text-body-secondary" id="user-profile-nickname"><?php echo $designation; ?></small>
       </button>
       <!-- Collapsed user menu -->
-      <div id="usernav" class="nav flex-column collapse show" style="">
+      <div id="usernav" class="nav flex-column collapse" style="">
          <!-- <a href="#" class="nav-link d-flex justify-content-between align-items-center">
             <span><i class="demo-pli-mail fs-5 me-2"></i><span class="ms-1">Messages</span></span>
             <span class="badge bg-danger rounded-pill">14</span>
