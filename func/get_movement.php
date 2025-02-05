@@ -34,6 +34,8 @@ $last_page = ceil($total_rows / $size);
 $sql = "SELECT
     i.id,
     i.item,
+    i.oem_serial,
+    i.svp_serial,
     GROUP_CONCAT(
         CASE WHEN MONTH(m.move_date) = 1 
         THEN CONCAT(m.location, ' (', DATE_FORMAT(m.move_date,'%d/%m/%Y'), ')') 
