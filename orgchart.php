@@ -1,6 +1,7 @@
 <?php
     // Database connection
     include_once './includes/db_func.php';
+    include_once 'func/user_check.php';
 
     $uid = isset($_GET['uid']) ? (int)$_GET['uid'] : 1;
     $starting_user_id = $uid;

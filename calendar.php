@@ -1,6 +1,7 @@
 <?php
 
 include_once 'includes/db_func.php';
+include_once 'func/user_check.php';
 include_once 'includes/env.php';
 
 ?>

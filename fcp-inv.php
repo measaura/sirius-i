@@ -1,5 +1,6 @@
 <?php
 include_once 'includes/db_func.php';
+include_once 'func/user_check.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-scheme="orange">
