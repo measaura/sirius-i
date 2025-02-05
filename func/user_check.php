@@ -17,5 +17,8 @@ while ($row = mysqli_fetch_array($res)){
    $designation = $row['designation'];
    $user_email = $row['username'];
    $user_avatar = $row['avatar'];
+   $user_mobile = $row['mobile'];
+   $user_empid = $row['emp_id'];
+   $user_company = $row['company'];
 }
 ?>
