@@ -1,5 +1,6 @@
 <?php
 include_once 'includes/db_func.php';
+include_once 'func/user_check.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-scheme="orange">
@@ -28,7 +29,7 @@ include_once 'includes/db_func.php';
 
    <!-- Tabulator CSS [ REQUIRED ] -->
    <link rel="stylesheet" href="assets/pages/tabulator.594dba0f683f451ea86885101e908a107608649cfba970d58003968fc240d2a1.css">
-   <!-- <link rel="stylesheet" href="assets/vendors/tabulator/css/tabulator_bootstrap5.min.css"> -->
+   <!-- <link rel="stylesheet" href="assets/vendors/tabulator/css/tabulator-site.min.css"> -->
 
    <!-- Favicons [ OPTIONAL ] -->
    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -200,7 +201,9 @@ include_once 'includes/db_func.php';
                   paginationSize: 10,
                   paginationSizeSelector: [10, 25, 50, 100],
                   columns: [
-                     { title: "Product Name", field: "item", sorter: "string" },
+                     { title: "Product Name", field: "item", sorter: "string", frozen:true },
+                     { title: "OEM Serial", field: "oem_serial", sorter: "string", frozen:true },
+                     { title: "SVP Serial", field: "svp_serial", sorter: "string", frozen:true },
                      { title: "January", field: "January", sorter: "string" },
                      { title: "February", field: "February", sorter: "string" },
                      { title: "March", field: "March", sorter: "string" },
