@@ -29,7 +29,7 @@ if(isset($_SESSION['uid']) && $_SESSION['uid'] != '' && $_SESSION['uac'] == 5) {
         $sql .= " WHERE u.id <> '$id'";
     }
     $sql .= " ORDER BY u.access_level DESC";
-    // $sql .= " LIMIT $size OFFSET $offset";
+    $sql .= " LIMIT $size OFFSET $offset";
     $result = $conn->query($sql);
 
     $response = [
