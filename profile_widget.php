@@ -1,21 +1,4 @@
-<?php
-// session_start();
-$user_id=$_SESSION['uid'];
-// echo "Session list<br/>";
-// foreach ($_SESSION as $key=>$value){
-//     echo "<b>".$key."</b>".": ".$value."<br/>";
-// }
 
-$qry = "SELECT * FROM users WHERE id = $user_id";
-// echo $qry;
-$res = mysqli_query($conn, $qry);
-while ($row = mysqli_fetch_array($res)){
-   $user_fullname = $row['fullname'];
-   $designation = $row['designation'];
-   $user_email = $row['username'];
-   $user_avatar = $row['avatar'];
-}
-?>
                <!-- Profile Widget -->
                 <!-- <style>
                   .dropdown-toggle{
@@ -36,11 +19,26 @@ while ($row = mysqli_fetch_array($res)){
 
       <!-- User name and position -->
       <button class="mainnav-widget-toggle d-block btn border-0 p-2" data-bs-toggle="collapse" data-bs-target="#usernav" aria-expanded="false" aria-controls="usernav">
-         <span class="d-flex justify-content-center align-items-center">
+         <span class="dropdown-toggle d-flex justify-content-center align-items-center">
             <h5 class="mb-0" id="user-profile-fullname"><?php echo $user_fullname; ?></h5>
          </span>
          <small class="text-body-secondary" id="user-profile-nickname"><?php echo $designation; ?></small>
       </button>
+      <!-- Collapsed user menu -->
+      <div id="usernav" class="nav flex-column collapse show" style="">
+         <!-- <a href="#" class="nav-link d-flex justify-content-between align-items-center">
+            <span><i class="demo-pli-mail fs-5 me-2"></i><span class="ms-1">Messages</span></span>
+            <span class="badge bg-danger rounded-pill">14</span>
+         </a> -->
+         <a href="profile.php" class="nav-link">
+            <i class="demo-pli-male fs-5 me-2"></i>
+            <span class="ms-1">Profile</span>
+         </a>
+         <a href="#" class="nav-link">
+            <i class="demo-pli-gear fs-5 me-2"></i>
+            <span class="ms-1">Settings</span>
+         </a>
+      </div>
       
    </div>
 </div>
