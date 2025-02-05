@@ -1,5 +1,6 @@
 <?php
 include_once 'includes/db_func.php';
+include_once 'func/user_check.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-scheme="orange">
@@ -36,6 +37,12 @@ include_once 'includes/db_func.php';
    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
    <link rel="manifest" href="site.webmanifest">
 
+   <style>
+      .tabulator-selected {
+         color : var(--bs-primary-color) !important;
+         background-color: var(--bs-primary) !important;
+      }
+   </style>
 
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -103,34 +110,41 @@ include_once 'includes/db_func.php';
                <div class="col-xl-12 mb-3">
                   <div class="card">
                      <div class="card-header">
-                        <!-- Toolbar -->
-                        <div class="d-flex gap-2 py-3" style="max-width: 700px;">
-                           <select id="_dm-filterField" class="form-select">
-                              <option value="none">Select field</option>
-                              <option value="item">Product Name</option>
-                              <option value="oem_serial">OEM Serial</option>
-                              <option value="svp_serial">SVP Serial</option>
-                              <option value="oem">OEM</option>
-                              <option value="mwp">MWP</option>
-                           </select>
+                        <div class="row d-flex">
+                           <!-- Toolbar -->
+                           <div class="d-flex gap-2 py-3 col-md-7">
+                              <select id="_dm-filterField" class="form-select">
+                                 <option value="none">Select field</option>
+                                 <option value="item">Product Name</option>
+                                 <option value="oem_serial">OEM Serial</option>
+                                 <option value="svp_serial">SVP Serial</option>
+                                 <option value="oem">OEM</option>
+                                 <option value="mwp">MWP</option>
+                              </select>
 
-                           <select id="_dm-filterType" class="form-select">
-                              <option value="like">Like</option>
-                              <option value="=">=</option>
-                              <option value="<">
-                                 << /option>
-                              <option value="<=">
-                                 <=< /option>
-                              <option value=">">></option>
-                              <option value=">=">>=</option>
-                              <option value="!=">!=</option>
-                           </select>
+                              <select id="_dm-filterType" class="form-select">
+                                 <option value="like">Like</option>
+                                 <option value="=">=</option>
+                                 <option value="<">
+                                    << /option>
+                                 <option value="<=">
+                                    <=< /option>
+                                 <option value=">">></option>
+                                 <option value=">=">>=</option>
+                                 <option value="!=">!=</option>
+                              </select>
 
-                           <input id="_dm-filterValue" class="form-control" type="text" placeholder="value to filter">
-                           <button id="_dm-filterClear" class="btn btn-primary text-nowrap">Clear Filter</button>
+                              <input id="_dm-filterValue" class="form-control" type="text" placeholder="value to filter">
+                              <button id="_dm-filterClear" class="btn btn-primary text-nowrap">Clear Filter</button>
+
+                           </div>
+                           <div class="d-flex gap-2 py-3 col-md-5 justify-content-end">
+                              <div class="align-middle"><h3>SELECTED: <span id="select-stats">0</span></h3></div>
+                              <button id="select-all" class="btn btn-primary text-nowrap">Select All</button>
+                              <button id="deselect-all" class="btn btn-primary text-nowrap">Deselect All</button>
+                           </div>
+                           <!-- END : Toolbar -->
                         </div>
-                        <!-- END : Toolbar -->
-
                      </div>
                      <div class="card-body">
                         <!-- Pagination -->
@@ -193,8 +207,10 @@ include_once 'includes/db_func.php';
                   // data: e,
                   ajaxURL: "func/get_data.php",
                   ajaxParams: { type: "pce" },
+                  selectableRows: true,
                   layout: "fitDataFill",
                   layoutColumnsOnNewData:true,
+                  filterMode: "remote",
                   pagination: "true",
                   paginationMode: "remote",
                   paginationSize: 10,
@@ -222,12 +238,52 @@ include_once 'includes/db_func.php';
             const o = e == "function" ? c : e;
             e == "function" ? ((n.disabled = !0), (s.disabled = !0)) : ((n.disabled = !1), (s.disabled = !1)), e && f.setFilter(o, t, s.value);
          }
-         document.getElementById("_dm-filterField").addEventListener("change", o),
-            document.getElementById("_dm-filterType").addEventListener("change", o),
-            document.getElementById("_dm-filterValue").addEventListener("keyup", o),
-            document.getElementById("_dm-filterClear").addEventListener("click", function () {
-                  (i.value = "none"), (n.value = "like"), (s.value = ""), f.clearFilter();
-            });
+         // document.getElementById("_dm-filterField").addEventListener("change", o),
+         // document.getElementById("_dm-filterType").addEventListener("change", o),
+         document.getElementById("_dm-filterValue").addEventListener("keyup", o),
+         document.getElementById("_dm-filterClear").addEventListener("click", function () {
+               (i.value = "none"), (n.value = "like"), (s.value = ""), f.clearFilter();
+         });
+         //select row on "select all" button click
+         document.getElementById("select-all").addEventListener("click", function(){
+            f.selectRow();
+         });
+
+         //deselect row on "deselect all" button click
+         document.getElementById("deselect-all").addEventListener("click", function(){
+            f.deselectRow();
+         });
+
+         const selectedIds = new Set();
+         f.on("rowSelectionChanged", function(data, rows){
+            // document.getElementById("select-stats").innerHTML = data.length;
+            document.getElementById("select-stats").innerHTML = selectedIds.size;
+            console.log(selectedIds.size);
+         });
+
+         f.on( "rowSelected", function ( row )
+         {
+            const id = row.getData()[this.options.index] ?? null;
+            if ( id !== null )
+            {
+               selectedIds.add( id );
+            }
+         } );
+
+         f.on( "rowDeselected", function ( row )
+         {
+            const id = row.getData()[this.options.index] ?? null;
+            if ( id !== null )
+            {
+               selectedIds.delete( id );
+            }
+         } );
+
+         f.on( "dataProcessed", function ()
+         {
+            f.selectRow( Array.from( selectedIds.values() ) );
+         } );
+
       });
    </script>
 
