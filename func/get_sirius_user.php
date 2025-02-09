@@ -16,8 +16,10 @@ if (mysqli_connect_errno()) {
 }
 
 $emp_id =strtoupper($_REQUEST['emp_id']);
-if ($emp_id != ''){
-    $query = mysqli_query($conn, "SELECT name, email, position FROM personal_detail where emp_id = '$emp_id'");
+$name = strtoupper($_REQUEST['name']);
+if ($name != '' && len($name) > 3) {
+    // $query = mysqli_query($conn, "SELECT name, email, position FROM personal_detail where emp_id = '$emp_id'");
+    $query = mysqli_query($conn, "SELECT pd.name, pd.email, ed.position FROM personal_detail pd LEFT JOIN emp_detail ed ON pd.emp_id = ed.emp_id WHERE name like '%$name%'");
     $row = mysqli_fetch_array($query);
     $fullname = $row['name'];
     $email = $row['email'];
