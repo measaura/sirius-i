@@ -9,4 +9,4 @@ logs/
 blankpage.php
 Database/*.sql
 .DS_Store
-emailtest.php
+*test.php
