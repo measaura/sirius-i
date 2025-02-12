@@ -40,6 +40,9 @@ include_once 'func/user_check.php';
    <!-- Loader.CSS [ OPTIONAL ] -->
    <link rel="stylesheet" href="assets/pages/loader.css.c6c9f1286fdc9e0b4228065b34d8750e1ed9beb2c8a8230d53e826a5f2fc8631.css">
 
+   <!-- Jquery-UI CSS [ OPTIONAL ] -->
+   <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.min.css">
+
    <!-- toastr.js -->
    <link rel="stylesheet" href="assets/vendors/toastr/toastr.min.css">
 
@@ -156,13 +159,22 @@ include_once 'func/user_check.php';
                                     <div class="modal-body">
                                        <form id="userForm">
                                           <div class="mb-3">
-                                             <label for="username" class="form-label">Email</label>
-                                             <input type="text" class="form-control" id="email" name="email" required>
+                                             <label for="iki" class="form-label">Full Name</label>
+                                             <input type="text" class="form-control" id="fullname" name="fullname" required autocomplete="off">
                                           </div>
-                                          <!-- <div class="mb-3">
-                                             <label for="fullname" class="form-label">Full Name</label>
-                                             <input type="text" class="form-control" id="fullname" name="fullname" required>
-                                          </div> -->
+                                          <div class="mb-3">
+                                             <label for="email" class="form-label">Email</label>
+                                             <input type="text" class="form-control" id="email" name="email" readonly>
+                                          </div>
+                                          <div class="mb-3">
+                                             <label for="position" class="form-label">Designation</label>
+                                             <input type="text" class="form-control" id="designation" name="designation" readonly>
+                                          </div>
+                                          <div class="mb-3">
+                                             <label for="superior" class="form-label">Reporting To</label>
+                                             <input type="text" class="form-control" id="superior" name="superior" required autocomplete="off">
+                                             <input type="hidden" name="superior_id" id="superior_id">
+                                          </div>
                                           <!-- Add other form fields as needed -->
                                           <button type="submit" class="btn btn-primary">Add user</button>
                                        </form>
@@ -244,6 +256,8 @@ include_once 'func/user_check.php';
 <?php
    include('javascript.php');
 ?>
+   <!-- Jquery-UI scripts [ OPTIONAL ] -->
+   <script src="assets/vendors/jquery-ui/jquery-ui.min.js"></script>
 
    <!-- Luxon scripts [ OPTIONAL ] -->
    <script src="assets/vendors/luxon/luxon.js"></script>
@@ -346,6 +360,8 @@ include_once 'func/user_check.php';
             document.getElementById("_dm-filterClear").addEventListener("click", function () {
                (i.value = "none"), (n.value = "like"), (s.value = ""), f.clearFilter();
             });
+            
+            
          
          toastr.options = {
             "closeButton": true,
@@ -383,6 +399,7 @@ include_once 'func/user_check.php';
                      // Show the form
                      $('#userForm').show();
                      // Handle the response from the server
+                     console.log(response);
                      let data = JSON.parse(response);
                      console.log(data.status);
                      // Optionally, you can close the modal and refresh the data on the page
@@ -402,6 +419,71 @@ include_once 'func/user_check.php';
                   }
             });
          });
+
+         $('#verticalCentered').on('shown.bs.modal', function () {
+            $('#fullname').on('keyup', function() {
+               let name = $(this).val();
+               if (name.length >= 2) {
+                  $.ajax({
+                     type: 'GET',
+                     url: 'func/get_sirius_user.php',
+                     data: { name: name },
+                     success: function(response) {
+                        let data = response; //JSON.parse(response);
+                        let suggestions = data.map(user => user.name);
+                        $('#fullname').autocomplete({
+                           source: suggestions,
+                           minLength: 3,
+                           appendTo: '#verticalCentered', // Ensure the autocomplete dropdown is appended to the modal
+                           select: function(event, ui) {
+                              let selectedUser = data.find(user => user.name === ui.item.value);
+                              $('#email').val(selectedUser.email);
+                              $('#designation').val(selectedUser.position);
+                           }
+                        });
+                     },
+                     error: function(xhr, status, error) {
+                        console.error(error);
+                     }
+                  });
+               }else{
+                  // $('#fullname').autocomplete('destroy');
+                  $('#email').val('');
+                  $('#designation').val('');
+               }
+            });
+            $('#superior').on('keyup', function() {
+               let supname = $(this).val();
+               if (supname.length >= 2) {
+                  $.ajax({
+                     type: 'GET',
+                     url: 'func/get_names.php',
+                     data: { name: supname, superior: true },
+                     success: function(response) {
+                        let data = response; //JSON.parse(response);
+                        let suggestions = data.map(suser => suser.fullname);
+                        $('#superior').autocomplete({
+                           source: suggestions,
+                           minLength: 3,
+                           appendTo: '#verticalCentered', // Ensure the autocomplete dropdown is appended to the modal
+                           select: function(event, ui) {
+                              let selectedSUser = data.find(suser => suser.fullname === ui.item.value);
+                              $('#superior').val(selectedSUser.fullname);
+                              $('#superior_id').val(selectedSUser.id);
+                           }
+                        });
+                     },
+                     error: function(xhr, status, error) {
+                        console.error(error);
+                     }
+                  });
+               }//else{
+                  // $('#fullname').autocomplete('destroy');
+               //    $('#superior').val('');
+               // }
+            });
+         });
+
       });
    </script>
 

@@ -24,8 +24,8 @@ $username = $_POST['email'];
 $username = filter_var($username, FILTER_SANITIZE_EMAIL);
 $username = filter_var($username, FILTER_VALIDATE_EMAIL);
 $email = $username;
-// $fullname = $_POST['fullname'];
-// $password = $_POST['password'];
+$fullname = $_POST['fullname'];
+$superior = $_POST['superior_id'];
 // $company = $_POST['company'];
 // $designation = $_POST['designation'];
 // $contact = $_POST['contact'];
@@ -44,7 +44,7 @@ if($res1=mysqli_query($conn,$sql1)){
     // session_start();
     $message = "This email have been registered!<br/>Please login to SIRIUS-I with your registered email.";
     $status = "error";
-    echo "email been registered earlier";
+    // echo "email been registered earlier";
     // header("Location: index.php");
   }else{
     $expFormat = mktime(
@@ -58,7 +58,7 @@ if($res1=mysqli_query($conn,$sql1)){
     //   $emp_id = strtoupper($_POST['emp_id']);
     //   $sql = "INSERT INTO login (username,password) VALUE (lower('$username'),'$hashed_pass',upper('$fullname'), upper('$company'), '$designation', '$contact', '$emp_id')";
     // }else{
-      $sql = "INSERT INTO users (username, hash_id, exp_date) VALUE (lower('$username'), '$key' ,'$expDate' )";
+      $sql = "INSERT INTO users (username, fullname, hash_id, exp_date) VALUE (lower('$username'), upper('$fullname'), '$key' ,'$expDate' )";
     // }
     // echo $sql;
     // exit();
@@ -66,6 +66,14 @@ if($res1=mysqli_query($conn,$sql1)){
         // echo "New user created successfully";
         // header("Location: index.php$urlqry");
         // header("Location: confirmmail.php");
+        // Get the last inserted ID
+        $last_id = mysqli_insert_id($conn);
+        $sql2 = "INSERT INTO user_hierarchy (user_id, superior_id) VALUE ('$last_id', '$superior')";
+        if (mysqli_query($conn, $sql2))  {
+          // echo "New user created successfully";
+        } else {
+          echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+        }
 
         $output='<p>You have been invited as the SIRIUS-I manager. Please click the button below to confirm your email address.</p>';
         // $output.='<p>-------------------------------------------------------------</p>';
