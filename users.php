@@ -423,7 +423,8 @@ include_once 'func/user_check.php';
          $('#verticalCentered').on('shown.bs.modal', function () {
             $('#fullname').on('keyup', function() {
                let name = $(this).val();
-               if (name.length >= 2) {
+               // console.log(name, name.length);
+               if (name.length >= 3) {
                   $.ajax({
                      type: 'GET',
                      url: 'func/get_sirius_user.php',
@@ -439,8 +440,18 @@ include_once 'func/user_check.php';
                               let selectedUser = data.find(user => user.name === ui.item.value);
                               $('#email').val(selectedUser.email);
                               $('#designation').val(selectedUser.position);
+                              if (!selectedUser) {
+                                event.preventDefault();
+                                toastr.error('Selected name is not valid', 'SIRIUS-I');
+                              }
                            }
                         });
+
+                        if (suggestions.length === 0) {
+                           let currentValue = $('#fullname').val();
+                           $('#fullname').val(currentValue.slice(0, -1)); // Remove the last character
+                           toastr.error('No matching names found<br/>Entered name is not a staff or has been registered', 'SIRIUS-I');
+                        }
                      },
                      error: function(xhr, status, error) {
                         console.error(error);
@@ -482,6 +493,12 @@ include_once 'func/user_check.php';
                //    $('#superior').val('');
                // }
             });
+         }).on('hidden.bs.modal', function () {
+            $('#fullname').val('');
+            $('#email').val('');
+            $('#designation').val('');
+            $('#superior').val('');
+            $('#superior_id').val('');
          });
 
       });
