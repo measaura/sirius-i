@@ -9,7 +9,7 @@
 
 <!-- Profile picture  -->
 <div class="mininav-toggle text-center py-2">
-   <img id="user-avatar-img" class="mainnav__avatar img-md rounded-circle hv-oc" src="assets/img/<?php echo $user_avatar?'uploads/'.$user_avatar:'profile-photos/3.png' ?>" alt="Profile Picture">
+   <img id="user-profile-img" class="mainnav__avatar img-md rounded-circle hv-oc" src="assets/img/<?php echo $user_avatar?'uploads/'.$user_avatar:'profile-photos/3.png' ?>" alt="Profile Picture">
 </div>
 
 
@@ -20,9 +20,9 @@
       <!-- User name and position -->
       <button class="mainnav-widget-toggle d-block btn border-0 p-2" data-bs-toggle="collapse" data-bs-target="#usernav" aria-expanded="false" aria-controls="usernav">
          <span class="dropdown-toggle d-flex justify-content-center align-items-center">
-            <h5 class="mb-0" id="user-profile-fullname"><?php echo $user_fullname; ?></h5>
+            <h5 class="mb-0 text-wrap" id="user-profile-fullname" style="overflow-wrap: break-word;"><?php echo $user_fullname; ?></h5>
          </span>
-         <small class="text-body-secondary" id="user-profile-nickname"><?php echo $designation; ?></small>
+         <small class="text-body-secondary" id="user-profile-designation"><?php echo $designation; ?></small>
       </button>
       <!-- Collapsed user menu -->
       <div id="usernav" class="nav flex-column collapse" style="">
