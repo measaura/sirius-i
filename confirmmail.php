@@ -35,10 +35,11 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"]) && ($
 	}else{
     $row = mysqli_fetch_assoc($query);
     $user_id = $row['id'];
+    $username = $row['username'];
+    $uac = $row['access_level'];
     $expDate = $row['exp_date'];
     if ($expDate >= $curDate){
       include_once 'confirmmail-content.php';
-      $_SESSION['user_id'] = $user_id;
     }else{
       // echo ("Error link expired below");
       $error .= "<h2>Link Expired</h2>
@@ -71,13 +72,18 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"]) && ($
     echo "<div class='error'>".$error."</div><br />";
   }else{
     $pwd = password_hash($pass1, PASSWORD_DEFAULT);
-    mysqli_query($conn, "UPDATE `login` SET `password`='".$pwd."', `confirm` = 1 WHERE `username`='".$email."';");
+    mysqli_query($conn, "UPDATE `users` SET `password`='".$pwd."', `confirm` = 1, `exp_date` = NULL, hash_id = NULL, `islogin` = 1, logindate = now() WHERE `username`='".$email."';");
+    $query2 = mysqli_query($conn, "SELECT id, access_level FROM `users` WHERE `username`='".$email."';");
+    $row2 = mysqli_fetch_assoc($query2);
+    $_SESSION['uid'] = $row2['id'];
+    $_SESSION['uac'] = $row2['access_level'];
+    $_SESSION['username'] = $email;
+    $_SESSION['last_time']=time();
+    unset($_SESSION['admin']);
 
-    // mysqli_query($conn,"DELETE FROM `forgot_password` WHERE `email`='".$email."';");
-    
     $_SESSION['message'] = "Congratulations! Your password has been updated successfully.";
     $_SESSION['msgtype'] = "success";
-    header('Location: wizard.php?first=1');
+    header('Location: profile.php?first=1');
 
     // echo '<div class="error"><p>Congratulations! Your password has been updated successfully.</p>
     // <p><a href="index.php">
