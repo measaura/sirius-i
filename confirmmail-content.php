@@ -80,17 +80,18 @@
                       <img src="assets/img/SVP-Logo_outline-250x200.png" alt="Setegap Ventures Petroleum Logo">
                     </div> -->
                     <div class="text-center">
-                      <img src="assets/img/SVP-Logo_outline-250x200.png" alt="Setegap Ventures Petroleum Logo">
+                      <img class="mb-3" src="assets/img/SVP-Logo_outline-250x200.png" alt="Setegap Ventures Petroleum Logo">
                         <h1 class="h3">Email verified!</h1>
-                        <p>Your <b>email</b> will be used as your username for SIRIUS-I login. </br>Create your <b>password</b> to complete the registration.</p>
+                        <p>Your <b>email</b> will be used as your <b>username</b> for SIRIUS-I login. </br>Create your <b>password</b> to complete the registration.</p>
                     </div>
 
                     <form class="mt-4 needs-validation" novalidate action="confirmmail.php" method="post">
                         <input type="hidden" name="action" value="<?php echo $_GET['action']; ?>">
                         <input type="hidden" name="username" value="<?php echo $email; ?>">
                         <div class="mb-3">
-                          <input type="text" class="form-control" placeholder="Username" value="Username: <?php echo $email; ?>" disabled>
-                          <div class="invalid-feedback">Please input your username</div>
+                          <label for="usernamelbl" class="form-label">Username: </label>
+                          <input id="usernamelbl" type="text" class="form-control form-control-lg" style="font-weight: 500;" placeholder="Username" value="<?php echo $email; ?>" readonly>
+                          <!-- <div class="invalid-feedback">Please input your username</div> -->
                         </div>
 
                         <div class="row">
