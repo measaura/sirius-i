@@ -10,6 +10,9 @@
    <!-- Nifty JS [ REQUIRED ] -->
    <script src="assets/js/nifty.min.js"></script>
 
+   <!-- toastr.js -->
+   <link rel="stylesheet" href="assets/vendors/toastr/toastr.min.css">
+   
    <!-- mainnav scripts [ REQUIRED ]  -->
    <script>
       $(document).ready(function () {
@@ -26,5 +29,21 @@
                return this.pathname == location.pathname; 
          }).addClass('active').parentsUntil('li.has-sub').siblings().addClass('active').removeClass('collapsed');
          
+         toastr.options = {
+         "closeButton": true,
+         "debug": false,
+         "progressBar": true,
+         "preventDuplicates": false,
+         "positionClass": "toast-top-center",
+         "onclick": null,
+         "showDuration": "400",
+         "hideDuration": "1000",
+         "timeOut": "7000",
+         "extendedTimeOut": "1000",
+         "showEasing": "swing",
+         "hideEasing": "linear",
+         "showMethod": "fadeIn",
+         "hideMethod": "fadeOut"
+         }
       });
    </script>
