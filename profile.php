@@ -3,13 +3,13 @@
 include_once 'includes/db_func.php';
 include_once 'func/user_check.php';
 
-$toastmsg = '';
-$toasttype = '';
+$text = '';
+$type = '';
 if (isset($_SESSION['message']) && $_SESSION['message']!= ''){
-    $toastmsg = $_SESSION['message'];
+    $text = $_SESSION['message'];
 }
 if(isset($_SESSION['msgtype'])&&$_SESSION['msgtype']!=''){
-    $toasttype = $_SESSION['msgtype'];
+    $type = $_SESSION['msgtype'];
 }
 
 unset($_SESSION['message']);
@@ -31,10 +31,11 @@ $user_id = $_SESSION['uid'];
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
    <!-- Fonts [ OPTIONAL ] -->
-   
-   
    <style type="text/css">@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/devanagari/300/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/devanagari/400/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/devanagari/500/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/devanagari/700/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek/500/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/500/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/500/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/500/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/700/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek/700/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
 
+   <!-- Fontawesome styles [ OPTIONAL ] -->
+   <link rel="stylesheet" href="assets/vendors/fontawesome/css/solid.css">
+   <link rel="stylesheet" href="assets/vendors/fontawesome/css/fontawesome.css">
 
    <!-- Bootstrap CSS [ REQUIRED ] -->
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -48,7 +49,6 @@ $user_id = $_SESSION['uid'];
    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
    <link rel="manifest" href="site.webmanifest">
-
 
    <!-- Dropzone styles [ OPTIONAL ] -->
    <link rel="stylesheet" href="assets/pages/file-uploads.3d391965cf0cc4d0a1b7af781db030a9aba4da869cfb4bb4e6bbbafcd564835d.css">
@@ -255,6 +255,7 @@ $user_id = $_SESSION['uid'];
                      <div class="card mb-3">
                         <form id="form-1" method="post">
                            <input type="hidden" name="user-id" value="<?php echo $user_id; ?>">
+                           <input type="hidden" name="user-avatar" value="<?php echo $user_avatar; ?>">
                            <div class="card-body">
                               <h5 class="card-title mt-3">Personal Details</h5>
                                  <!-- Default Style -->
@@ -300,8 +301,8 @@ $user_id = $_SESSION['uid'];
                                     <input id="pass1" type="password" class="form-control" oninput="validatePassword(this.value)">
                                     <div class="invalid-feedback">Please input your password</div>
                                     <span id="errorMessage" class="font-weight-bold text-danger"></span>
-                                    <div class="form-group">
-                                       <ul>
+                                    <div id="pwdHint" class="form-group" style="display:none">
+                                       <ul style="list-style-type: none;">
                                              <li id="minLength"><i class="fas fa-times
                                                 text-danger"></i> Minimum 8 characters</li>
                                              <li id="uppercase"><i class="fas fa-times
@@ -405,6 +406,8 @@ $user_id = $_SESSION['uid'];
    <?php
    include_once 'javascript.php';
    ?>
+   <!-- Fontawesome Scripts [ OPTIONAL ] -->
+   <script src="assets/vendors/fontawesome/js/fontawesome.js"></script>
 
    <!-- Dropzone Scripts [ OPTIONAL ] -->
    <script src="assets/vendors/dropzone/dropzone-min.ca7382cd44de7fd6e5f02831dc2400b18e29a69711e3bc3a84e15c648d8e6363.js"></script>
@@ -445,9 +448,13 @@ $user_id = $_SESSION['uid'];
                 errorMessage.classList.remove('text-danger');
                 errorMessage.classList.add('text-success');
             } else {
+               if(password.length > 0){
                 errorMessage.textContent = 'Weak Password';
                 errorMessage.classList.remove('text-success');
                 errorMessage.classList.add('text-danger');
+               }else{
+                errorMessage.textContent = '';
+               }
             }
         }
 
@@ -455,36 +462,43 @@ $user_id = $_SESSION['uid'];
       console.log('DOM Content Loaded');
 
         // Check if passwords match
-        const errorMessage = document.getElementById('passwordError');
+        const passwordError = document.getElementById('passwordError');
+        $('#pass1').on("keyup", function(){
+         if(this.value.length > 0){
+            $('#pwdHint').show();
+         }else{
+            $('#pwdHint').hide();
+         }
+        });
         var pass2='';
         $("#pass2").on("keyup", function () {
          //  console.log($("#pass2").val());
           // errorMessage.removeClass('invalid-feedback');
           if(this.value.length > 0){
-            errorMessage.classList.remove('invalid-feedback');
+            passwordError.classList.remove('invalid-feedback');
             // errorMessage.textContent = '';
             // return;
           if ($("#pass1").val() == $("#pass2").val()) {
             // console.log('matched');
-            errorMessage.textContent = 'Password matched';
-            errorMessage.classList.remove('text-danger');
-            errorMessage.classList.add('text-success');
+            passwordError.textContent = 'Password matched';
+            passwordError.classList.remove('text-danger');
+            passwordError.classList.add('text-success');
             pass2 = this.value;
           }else{
             // theForm.classList.add("was-validated")
             // console.log('not matched');
-            errorMessage.textContent = 'Password does not match';
-            errorMessage.classList.remove('text-success');
-            errorMessage.classList.add('text-danger');
+            passwordError.textContent = 'Password does not match';
+            passwordError.classList.remove('text-success');
+            passwordError.classList.add('text-danger');
           }
          }else{
-            errorMessage.textContent = '';
-            errorMessage.classList.add('invalid-feedback');
+            passwordError.textContent = '';
+            passwordError.classList.add('invalid-feedback');
          }
         });
    // $(document).ready(function(){
-         var toastmsg = '<?php echo $toastmsg; ?>';
-         var toasttype = '<?php echo $toasttype; ?>';
+         var text = '<?php echo $text; ?>';
+         var type = '<?php echo $type; ?>';
          toastr.options = {
          "closeButton": true,
          "debug": false,
@@ -502,13 +516,13 @@ $user_id = $_SESSION['uid'];
          "hideMethod": "fadeOut"
          }
 
-         if(toastmsg!=''){
-               if(toasttype == 'error'){
-                  toastr.error(toastmsg,'SIRIUS-I');
-               }else if(toasttype=='success'){
-                  toastr.success(toastmsg,'SIRIUS-I');
-               }else if(toasttype=='info'){
-                  toastr.info(toastmsg,'SIRIUS-I');
+         if(text!=''){
+               if(type == 'error'){
+                  toastr.error(text,'SIRIUS-I');
+               }else if(type=='success'){
+                  toastr.success(text,'SIRIUS-I');
+               }else if(type=='info'){
+                  toastr.info(text,'SIRIUS-I');
                }
          }
 
@@ -744,6 +758,24 @@ $user_id = $_SESSION['uid'];
                document.getElementById('root').classList.remove('mn--min');
                document.getElementById('root').classList.add('mn--max');
 
+            }).success(function (ajaxData) {
+               // console.log(ajaxData);
+               if(ajaxData.text != ''){
+                  if(ajaxData.type == 'error'){
+                     toastr.error(ajaxData.text,'SIRIUS-I');
+                  }else if(ajaxData.type=='success'){
+                     toastr.success(ajaxData.text,'SIRIUS-I');
+                  }else if(ajaxData.type=='info'){
+                     toastr.info(ajaxData.text,'SIRIUS-I');
+                  }
+                  $('#form1')[0].reset();
+                  $('#pass1').val('') ;
+                  $('#pass2').val('');
+               }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+               console.log(jqXHR);
+               console.log(textStatus);
+               console.log(errorThrown);
             });
          }
          // event.preventDefault();

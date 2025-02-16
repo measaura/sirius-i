@@ -6,25 +6,25 @@ include_once 'includes/db_func.php';
   // Uncomment below lines within this debug code until exit() row.
   // This will return any $_POST and $_FILES contents submitted to this script
   //
-  // foreach($_POST as $key => $value) {
-  //   if(is_array($value)) {
-  //       $response['POST'][$key] = array();
-  //       foreach($value as $index => $content) {
-  //           $response['POST'][$key][$index] = $content;
-  //       }
-  //   } else {
-  //       $response['POST'][$key] = $value;
-  //   }
-  // }
-  // foreach($_FILES as $key => $value) {
-  //     $response['FILES'][$key] = array();
-  //     foreach($value as $param => $content) {
-  //         $response['FILES'][$key][$param] = $content;
-  //     }
-  // }
+  foreach($_POST as $key => $value) {
+    if(is_array($value)) {
+        $response['POST'][$key] = array();
+        foreach($value as $index => $content) {
+            $response['POST'][$key][$index] = $content;
+        }
+    } else {
+        $response['POST'][$key] = $value;
+    }
+  }
+  foreach($_FILES as $key => $value) {
+      $response['FILES'][$key] = array();
+      foreach($value as $param => $content) {
+          $response['FILES'][$key][$param] = $content;
+      }
+  }
 
-  // echo json_encode($response);
-  // exit();
+  $output = json_encode($response);
+  // die($output);
   // 
   // ================= End debug form POST ====================
 $upload_path = __DIR__. DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'img'  . DIRECTORY_SEPARATOR . 'uploads' ;
@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $user_designation  = $_POST['user-designation'];
   $user_mobile    = $_POST['user-mobile'];
   $user_avatar    = $_POST['user-avatar'];
+  $avatar_check   = $upload_path . DIRECTORY_SEPARATOR . $user_avatar;
 
 
   $data = array();
@@ -44,7 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Check for file upload and process
   if (isset($_FILES['croppedImage']) && ($_FILES['croppedImage']['name'] != '')) {
+    if (file_exists($avatar_check)) {
+        unlink($avatar_check); // Delete the file from the server
+    }
     // echo('file available');
+    // die(json_encode(array('type' => 'error', 'text' => 'File available')));
+
     $file_size =$_FILES['croppedImage']['size'];
     if($file_size > 10750000){
       $return = array(
@@ -83,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
   } else {
-      if (isset($_POST['upload'])){
+      // if (isset($_POST['upload'])){
           if (isset($_POST['delimg'])) {
               if (file_exists($user_avatar)) {
                   unlink($user_avatar); // Delete the file from the server
@@ -92,22 +98,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           } else {
               $Filename = $user_avatar;
           }
-      }
+      // }
   }
 
-
-  if(isset($_POST['user-avatar'])&& !isset($_FILES['croppedImage'])){
-    $Filename = $_POST['user-avatar'];
-  }
   // echo "form-1 submitted\n";
   // $qry = "INSERT INTO user_details( user_id, fullname, email, nickname, year_in, year_spm, dob, avatar) ";
   // $qry .= "VALUES( '$user_id', '$user_fullname', '$user_email', '$user_nickname', '$user_yr_start', '$user_yr_end', '$user_dob', '$Filename') ";
   // $qry .= "AS new ON DUPLICATE KEY UPDATE ";
   // $qry .= "fullname = new.fullname, email = new.email, nickname = new.nickname, year_in = new.year_in, year_spm = new.year_spm, dob = new.dob, avatar = new.avatar";
-  $qry = "UPDATE users SET fullname = UPPER('$user_fullname'), designation = UPPER('$user_designation'), mobile = '$user_mobile', avatar = '$Filename'";
   if(isset($_POST['edit'])){
     $pwd = password_hash($_POST['edit'], PASSWORD_DEFAULT);
-    $qry .= ", password = '$pwd'";
+    $qry = "UPDATE users SET password = '$pwd'";
+  }else{
+    $qry = "UPDATE users SET fullname = UPPER('$user_fullname'), designation = UPPER('$user_designation'), mobile = '$user_mobile'";
+    if(isset($_POST['user-avatar'])&& !isset($_FILES['croppedImage'])){
+      // $Filename = $_POST['user-avatar'];
+      $qry .= ", avatar = '$Filename'";
+    }
   }
   $qry .= " WHERE id = $user_id";
   // echo $qry;
@@ -138,6 +145,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     'text' => 'Data have been updated',
     'data' => $data
   );
+  if(isset($_POST['edit'])){
+    $results['data']['password'] = 'updated';
+    $results['text'] = 'Password have been updated';
+  }else{
+    $results['text'] = 'Profile have been updated';
+  }
   $output = json_encode( $results);
   die($output);
 }
