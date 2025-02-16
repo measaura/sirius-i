@@ -2,6 +2,9 @@
 header('Content-Type: application/json; charset=utf-8');
 error_reporting(E_ERROR);
 include_once 'includes/db_func.php';
+
+$data = array();
+$results = array();
   // ================= debug form POST ====================
   // Uncomment below lines within this debug code until exit() row.
   // This will return any $_POST and $_FILES contents submitted to this script
@@ -23,7 +26,7 @@ include_once 'includes/db_func.php';
       }
   }
 
-  $output = json_encode($response);
+  $results['debug'] = Array($response);
   // die($output);
   // 
   // ================= End debug form POST ====================
@@ -39,8 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $avatar_check   = $upload_path . DIRECTORY_SEPARATOR . $user_avatar;
 
 
-  $data = array();
-  $results = array();
   $ds = DIRECTORY_SEPARATOR;
 
   // Check for file upload and process
@@ -112,7 +113,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }else{
     $qry = "UPDATE users SET fullname = UPPER('$user_fullname'), designation = UPPER('$user_designation'), mobile = '$user_mobile'";
     if(isset($_POST['user-avatar'])&& !isset($_FILES['croppedImage'])){
-      // $Filename = $_POST['user-avatar'];
+      $Filename = $_POST['user-avatar'];
+      $qry .= ", avatar = '$Filename'";
+    }else{
       $qry .= ", avatar = '$Filename'";
     }
   }

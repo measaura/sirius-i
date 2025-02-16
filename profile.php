@@ -768,7 +768,7 @@ $user_id = $_SESSION['uid'];
                   }else if(ajaxData.type=='info'){
                      toastr.info(ajaxData.text,'SIRIUS-I');
                   }
-                  $('#form1')[0].reset();
+                  // $('#form1')[0].reset();
                   $('#pass1').val('') ;
                   $('#pass2').val('');
                }
