@@ -11,8 +11,7 @@
    <script src="assets/js/nifty.min.js"></script>
 
    <!-- toastr.js -->
-   <link rel="stylesheet" href="assets/vendors/toastr/toastr.min.css">
-   
+   <script src="assets/vendors/toastr/toastr.min.js"></script>
    <!-- mainnav scripts [ REQUIRED ]  -->
    <script>
       $(document).ready(function () {
