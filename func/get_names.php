@@ -30,43 +30,47 @@ $result = array();
 
 $name = strtoupper($_REQUEST['name']);
 // Construct the SQL query with LIKE operator for partial matching
-$sql = "SELECT id, fullname, designation FROM users
-WHERE fullname IN (
-'SYAZRIN BIN SAAD'
-,'IMRAN BIN AKOP'
-,'MUHAMMAD SHAFIQ BIN HASHIM'
-,'MOHD HAFIZAN BIN ABDUL MANAN'
-,'SUPRAYETNO'
-,'TING JECK ING'
-,'MOHD SABRI BIN ABU BAKAR'
-,'RONALD PETER RAMNARINE KINGLAND'
-,'ROSAZLI BIN BONI'
-,'CHOO DER JIUN'
-,'MOHD SHAFUAN BIN AZIZAN'
-,'MOHD ZULHAIZAN BIN MOHD NOOR'
-,'MOHD SHAHRIN BIN SAAD'
-,'NOR ATIQAH BINTI ZAINAL'
-,'HAIRULIZAM BIN HASSAN'
-,'MUHAMMAD AIMAN ARIF BIN ROSLAN'
-,'KHAIRON NAZRI BIN SAIFUL RIJAL'
-,'NOR ZURAIDAH BINTI ABDUL AR\'RIF'
-,'SHAHARUM BIN RAMLI'
-,'NORSHAZLEIZA BINTI MOHD SURU'
-,'ANUAR HASBUL\'LAH BIN ABOO HASHIM @ HASHI'
-,'AHMAD FARHAN BIN IBERAHIM'
-,'AHMAD RIZAL BIN MOHD MAHAIYUDIN'
-,'NUR IZZATI BINTI MOHD FIDZRUS'
-,'MUHAMMAD \'ATHUF BIN YUNUS'
-,'SHALIFIKA BIN SHAIR @ SHAKER'
-,'AFFANDI BIN ABDUL RAZAK'
-,'SHAHRUL NIZAM BIN MOHAMED RAZALI'
-,'MOHAMAD DANIAL BIN OTHMAN'
-,'HENDRI BIN AFRIZAL'
-,'SYAHNUR ADZAM BIN MOHD NASIR'
-)";
 if($name != '' && strlen($name) >= 3){
-    $sql .= " AND fullname LIKE '%$name%'";
-}
+    $sql = "SELECT id, fullname, designation FROM users";
+    if(isset($_REQUEST['superior']) && $_REQUEST['superior']=='true'){
+        $sql .= " WHERE fullname IN (
+        'SYAZRIN BIN SAAD'
+        ,'IMRAN BIN AKOP'
+        ,'MUHAMMAD SHAFIQ BIN HASHIM'
+        ,'MOHD HAFIZAN BIN ABDUL MANAN'
+        ,'SUPRAYETNO'
+        ,'TING JECK ING'
+        ,'MOHD SABRI BIN ABU BAKAR'
+        ,'RONALD PETER RAMNARINE KINGLAND'
+        ,'ROSAZLI BIN BONI'
+        ,'CHOO DER JIUN'
+        ,'MOHD SHAFUAN BIN AZIZAN'
+        ,'MOHD ZULHAIZAN BIN MOHD NOOR'
+        ,'MOHD SHAHRIN BIN SAAD'
+        ,'NOR ATIQAH BINTI ZAINAL'
+        ,'HAIRULIZAM BIN HASSAN'
+        ,'MUHAMMAD AIMAN ARIF BIN ROSLAN'
+        ,'KHAIRON NAZRI BIN SAIFUL RIJAL'
+        ,'NOR ZURAIDAH BINTI ABDUL AR\'RIF'
+        ,'SHAHARUM BIN RAMLI'
+        ,'NORSHAZLEIZA BINTI MOHD SURU'
+        ,'ANUAR HASBUL\'LAH BIN ABOO HASHIM @ HASHI'
+        ,'AHMAD FARHAN BIN IBERAHIM'
+        ,'AHMAD RIZAL BIN MOHD MAHAIYUDIN'
+        ,'NUR IZZATI BINTI MOHD FIDZRUS'
+        ,'MUHAMMAD \'ATHUF BIN YUNUS'
+        ,'SHALIFIKA BIN SHAIR @ SHAKER'
+        ,'AFFANDI BIN ABDUL RAZAK'
+        ,'SHAHRUL NIZAM BIN MOHAMED RAZALI'
+        ,'MOHAMAD DANIAL BIN OTHMAN'
+        ,'HENDRI BIN AFRIZAL'
+        ,'SYAHNUR ADZAM BIN MOHD NASIR'
+        ) AND";
+    }else{
+        $sql .= " WHERE";
+    }
+    $sql .= " fullname LIKE '%$name%'";
+
 // $like_clauses = [];
 // foreach ($names as $name) {
 //     $like_clauses[] = "pd.name LIKE '%$name%'";
@@ -81,6 +85,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 
 header('Content-Type: application/json');
 echo json_encode($result);
-
+}
 $conn->close();
 ?>
