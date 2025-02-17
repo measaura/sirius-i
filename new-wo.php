@@ -20,30 +20,23 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
    <title>New Work Order | SIRIUS-I</title>
 
 
-   <!-- STYLESHEETS -->
-   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-   <!-- Fonts [ OPTIONAL ] -->
-   
-   
-   <style type="text/css">@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/devanagari/300/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(./assets/fonts/poppins/5.0.11/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(./assets/fonts/poppins/5.0.11/devanagari/400/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/devanagari/500/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(./assets/fonts/poppins/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/devanagari/700/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(./assets/fonts/poppins/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:400;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek/500/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/500/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/500/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/500/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:500;src:url(./assets/fonts/ubuntu/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek-ext/700/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/greek/700/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Ubuntu;font-style:normal;font-weight:700;src:url(./assets/fonts/ubuntu/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
-
-
-   <!-- Bootstrap CSS [ REQUIRED ] -->
-   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-   <!-- Nifty CSS [ REQUIRED ] -->
-   <link rel="stylesheet" href="assets/css/nifty.min.css">
+   <?php
+   include 'headcss.php';
+   ?>
 
    <!-- Tabulator CSS [ REQUIRED ] -->
    <!-- <link rel="stylesheet" href="assets/vendors/tabulator/css/tabulator.min.css"> -->
    <link rel="stylesheet" href="assets/pages/tabulator.594dba0f683f451ea86885101e908a107608649cfba970d58003968fc240d2a1.css">
+
 
    <!-- Favicons [ OPTIONAL ] -->
    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
    <link rel="manifest" href="site.webmanifest">
+
+   <!-- Jquery-UI CSS [ OPTIONAL ] -->
+   <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.min.css">
 
    <style>
       .tabulator-selected {
@@ -129,8 +122,8 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
 
                <div class="col-xl-12 mb-3">
 
-                  <form method="post" class="row g-3">
-
+                  <form id="woForm" method="post" class="row g-3">
+                     <input type="hidden" name="creator_id" value="<?php echo $user_id; ?>">
                      <div class="card">
                         <div class="card-header">
                            <div class="row g-3">
@@ -141,13 +134,18 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
                                     <label for="wo_no" class="form-label">Work Order No</label><h1><?php echo $wo_no ?></h1>
                                     <input id="wo_no" name="wo_no" type="hidden"  value="<?php echo $wo_no ?>">
                                  </div>
-                                 <div class="col-md-8">
+                                 <div class="col-md-4">
                                     <label for="level" class="form-label">Certification Type</label>
                                     <select id="level" class="form-select form-select-lg" name="level">
                                        <option selected>Choose...</option>
                                        <option value="1">Level 1</option>
                                        <option value="3">Level 3</option>
                                     </select>
+                                 </div>
+                                 <div class="col-md-4" id="assignTo">
+                                    <label for="level" class="form-label">Assign To</label>
+                                    <input type="text" class="form-control form-control-lg" id="assign">
+                                    <input type="hidden" name="assign_id" id="assign_id">
                                  </div>
                               </div>
                               <div class="row g-3">
@@ -265,7 +263,7 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
                            <!-- END : Pagination -->
                         </div>
                         <div class="card-footer">
-                           <button type="submit" class="btn btn-primary">Create Work Order</button>
+                           <button type="submit" id="newWo" class="btn btn-primary">Create Work Order</button>
                         </div>
                      </div>
                   </form>
@@ -312,6 +310,11 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
 <?php
    include('javascript.php');
 ?>
+   <!-- Jquery-UI scripts [ OPTIONAL ] -->
+   <script src="assets/vendors/jquery-ui/jquery-ui.min.js"></script>
+
+   <!-- Luxon scripts [ OPTIONAL ] -->
+   <script src="assets/vendors/luxon/luxon.js"></script>
 
 
    <!-- Tabulator scripts [ OPTIONAL ] -->
@@ -438,31 +441,115 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
             }
          });
 
-         document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+         // document.querySelector('form').addEventListener('submit', function(event) {
+         //    event.preventDefault(); // Prevent the default form submission
 
-            const formData = new FormData(this);
-            const selectedRows = Array.from(selectedIds.values());
+         //    const formData = new FormData(this);
+         //    const selectedRows = Array.from(selectedIds.values());
 
-            selectedRows.forEach((row, index) => {
-               formData.append(`wo_item_id[${index}]`, row);
-            });
+         //    selectedRows.forEach((row, index) => {
+         //       formData.append(`wo_item_id[${index}]`, row);
+         //    });
 
-            fetch('formtest.php', {
-               method: 'POST',
-               body: formData
-            })
-            // .then(response => response.json())
-            .then(response => response.text())
-            .then(data => {
-               console.log(data);
-               // Handle the response from the server
-            })
-            .catch(error => {
-               console.error('Error:', error);
-            });
+         //    fetch('formtest.php', {
+         //       method: 'POST',
+         //       body: formData
+         //    })
+         //    .then(response => response.json())
+         //    // .then(response => response.text())
+         //    .then(data => {
+         //       console.log(data);
+         //       // Handle the response from the server
+         //    })
+         //    .catch(error => {
+         //       console.error('Error:', error);
+         //    });
+         // });
+
+         $('#assign').on('keyup', function() {
+            let assign = $(this).val();
+            console.log(assign);
+            if (assign.length >= 3) {
+               $.ajax({
+                  type: 'GET',
+                  url: 'func/get_names.php',
+                  data: { name: assign, superior: false },
+                  success: function(response) {
+                     let data = response; //JSON.parse(response);
+                     let suggestions = data.map(suser => suser.fullname);
+                     $('#assign').autocomplete({
+                        source: suggestions,
+                        minLength: 3,
+                        appendTo: '#assignTo', // Ensure the autocomplete dropdown is appended to the modal
+                        select: function(event, ui) {
+                           let selectedSUser = data.find(suser => suser.fullname === ui.item.value);
+                           $('#assign').val(selectedSUser.fullname);
+                           $('#assign_id').val(selectedSUser.id);
+                        }
+                     });
+                  },
+                  error: function(xhr, status, errors) {
+                     console.error(errors);
+                  }
+               });
+            }//else{
+               // $('#fullname').autocomplete('destroy');
+            //    $('#assign').val('');
+            // }
          });
+         
+         // Submit User Details information
+         var newWo = document.querySelector("#newWo");
+         newWo.addEventListener("click", function (event) {
+            var form1 = document.getElementById("woForm");
+            var formData = new FormData(form1);
+            event.preventDefault();
+            console.log(Array.from( selectedIds.values() ));
+            formData.append('item-id',Array.from( selectedIds.values() ));
+            for (const [key, value] of formData) {
+               console.log (`${key}: ${value}\n`);
+            }
+            const data = {};
+            for (let keyValue of formData.entries()) {
+               data[keyValue[0]] = keyValue[1];
+            }
+            // console.log('data',data);
+            if( data['level'] != 'Choose...'){
+               // if(croppedProfileImage.size > 0){
+               //    formData.append('croppedImage', croppedProfileImage, croppedProfileImageName);
+               // }
+               $.ajax({
+                  type: "POST",
+                  url: "save_wo.php",
+                  data: formData,
+                  contentType: false,
+                  processData: false,
+               }).done(function (ajaxData) {
+                  console.log(ajaxData);
 
+               }).success(function (ajaxData) {
+                  // console.log(ajaxData);
+                  if(ajaxData.text != ''){
+                     if(ajaxData.type == 'error'){
+                        toastr.error(ajaxData.text,'SIRIUS-I');
+                     }else if(ajaxData.type=='success'){
+                        toastr.success(ajaxData.text,'SIRIUS-I');
+                     }else if(ajaxData.type=='info'){
+                        toastr.info(ajaxData.text,'SIRIUS-I');
+                     }
+                  }
+               }).fail(function (jqXHR, textStatus, errorThrown) {
+                  console.log(jqXHR);
+                  console.log(textStatus);
+                  console.log(errorThrown);
+               });
+            }else{
+               toastr.error('Please make sure all information are entered / chosen!', 'SIRIUS-I');
+               $('level').focus();
+            }
+            // event.preventDefault();
+            event.stopPropagation();  
+         });
       });
    </script>
 
