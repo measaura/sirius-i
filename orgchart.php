@@ -250,8 +250,8 @@
             <div class="content__wrap">
                <div class="card text-center mb-4 ">
                   <div class="card-header">SETEGAP VENTURE PETROLEUM SDN BHD</div>
-                  <div class="card-body">
-                    <div class="tree d-flex col-md-12">
+                  <div class="card-body" style="width: 100%; overflow-x: auto;">
+                    <div class="tree d-flex col-md-12" style="min-width: 1200px;">
 
                     <?php
                     if (isset($hierarchy[null])) {
