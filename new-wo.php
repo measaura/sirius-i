@@ -35,6 +35,9 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
    <link rel="manifest" href="site.webmanifest">
 
+   <!-- Loader.CSS [ OPTIONAL ] -->
+   <link rel="stylesheet" href="assets/pages/loader.css.c6c9f1286fdc9e0b4228065b34d8750e1ed9beb2c8a8230d53e826a5f2fc8631.css">
+
    <!-- Jquery-UI CSS [ OPTIONAL ] -->
    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.min.css">
 
@@ -54,6 +57,29 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
          border: 0.15em solid var(--bs-primary) !important;
          border-radius: 0.15em;
          transform: translateY(-0.075em);
+      }
+      #loader {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.5);
+         z-index: 9999;
+         display: none;
+         justify-content: center;
+         align-items: center;
+      }
+      .loader {
+         min-height: 100%;
+         display: flex;
+         /* display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh; */
+      }
+      body #toast-container > div {
+         opacity: .9;
       }
    </style>
 
@@ -291,6 +317,22 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
       ?>
 
 
+      <div id="loader" class="py-4 text-center">
+         <!-- Loader - Ball spin fade loader -->
+         <div class="loader">
+            <div class="loader-inner ball-spin-fade-loader">
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
+         </div>
+         <!-- END : Loader - Ball spin fade loader -->
+      </div>
    </div>
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
    <!-- END - PAGE CONTAINER -->
@@ -518,6 +560,10 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
                // if(croppedProfileImage.size > 0){
                //    formData.append('croppedImage', croppedProfileImage, croppedProfileImageName);
                // }
+
+               // Show the loader
+               $('#loader').show();
+
                $.ajax({
                   type: "POST",
                   url: "save_wo.php",
@@ -528,7 +574,9 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
                   console.log(ajaxData);
 
                }).success(function (ajaxData) {
-                  // console.log(ajaxData);
+                  // Hide the loader
+                  $('#loader').hide();
+                  console.log('success',ajaxData);
                   if(ajaxData.text != ''){
                      if(ajaxData.type == 'error'){
                         toastr.error(ajaxData.text,'SIRIUS-I');
