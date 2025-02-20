@@ -2,6 +2,12 @@
 include_once 'includes/db_func.php';
 include_once 'func/email_func.php';
 
+if($_SERVER['SERVER_NAME'] == 'sirius-i.test'){
+    $sirius_tld = 'http://sirius-i.test';
+ }else{
+    $sirius_tld = 'https://sirius-i.svpetroleum.com.my';
+ }
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $wo_no = $_POST['wo_no'];
     $level = intval($_POST['level']);
@@ -36,38 +42,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Get superior email
-    $sql = "SELECT u.username FROM user_hierarchy uh
+    $sql = "SELECT u.username, u.fullname FROM user_hierarchy uh
             JOIN users u ON uh.superior_id = u.id
             WHERE uh.user_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $assign_id);
     $stmt->execute();
-    $stmt->bind_result($superior_email);
+    $stmt->bind_result($superior_email, $superior_name);
     $stmt->fetch();
     $stmt->close();
 
     // Send notification email
     if ($superior_email) {
+        $email = $superior_email;
         // $subject = "New Work Order Assigned";
         // $message = "A new work order (WO No: $wo_no) has been assigned.";
         // $headers = "From: no-reply@sirius-i.com";
-        // $output='<p>You have been invited as the SIRIUS-I manager. Please click the button below to confirm your email address.</p>';
-        // $output.='<p>-------------------------------------------------------------</p>';
-        // $output.='<p><a href="'.$sirius_tld.'/confirmmail.php?key='.$key.'&email='.$email.'&action=confirm" target="_blank">
-        // '.$sirius_tld.'/confirmmail.php?key='.$key.'&email='.$email.'&action=confirm</a></p>';		
-        // $output.='<p>-------------------------------------------------------------</p>';
-        // $output.='<p>Please be sure to copy the entire link into your browser.';
-        $output.='<p>A new work order (WO No: $wo_no) has been created. Please click the button below to approve the request of the work order creation.</p>';
+        $output ='<p>A new work order (WO No: '.$wo_no.') has been created. Please click the button below to approve the request of the work order creation.</p>';
         // $output.='<p>If you did not register to SIRIUS-I, no action is needed.</p>'; 
         $body = $output; 
-        $subject = "New Work Order Assigned - SIRIUS-I";
-        $title = "SIRIUS-I Work Order";
+        $subject = "New Work Order Created ($wo_no)";
+        $title = "New SIRIUS-I Work Order";
         $buttontxt = "Approve Work Order";
-        $buttonlink = $sirius_tld.'/approve-wo.php?key='.$key.'&email='.$email.'&action=confirm';
+        $buttonlink = $sirius_tld.'/approve-wo.php?wo='.$wo_no.'&action=confirm';
 
-        sendEmail($email,$subject,$title,$body,$buttontxt,$buttonlink,$email);
+        sendEmail($email,$subject,$title,$body,$buttontxt,$buttonlink,$superior_name);
         // session_start();
-        $message = "The mail invite link has been sent to the  email address.";
+        $message = "A new work order (WO No: $wo_no) has been created.";
         $status = "success";
 
     } else {
@@ -81,9 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status = "error";
 }
 $response = [
-  'message' => $message,
-  'status' => $status
+  'text' => $message,
+  'type' => $status
 ];
 
+header('Content-Type: application/json');
 echo json_encode($response);
 ?>
