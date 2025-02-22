@@ -10,3 +10,4 @@ blankpage.php
 Database/*.sql
 .DS_Store
 *test.php
+Database/*.mwb
