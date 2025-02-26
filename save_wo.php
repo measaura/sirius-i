@@ -15,13 +15,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $assign_id = intval($_POST['assign_id']);
     $item_ids = $_POST['item-id'];
     $item_ids_array = explode(',', $item_ids); // Convert comma-separated string to array
-    $chk_visual = isset($_POST['visual']) ? 1 : 0;
-    $chk_disassembly = isset($_POST['disassembly']) ? 1 : 0;
-    $chk_mpi = isset($_POST['mpi']) ? 1 : 0;
-    $chk_dimensional = isset($_POST['dimensional']) ? 1 : 0;
-    $chk_gauge = isset($_POST['gauge']) ? 1 : 0;
-    $chk_assembly = isset($_POST['assembly']) ? 1 : 0;
-    $chk_pressure = isset($_POST['pressure']) ? 1 : 0;
+    $tests = [];
+    if (isset($_POST['visual']) && $_POST['visual'] == 1) {
+        $tests['visual'] = 1;
+    }
+    if (isset($_POST['disassembly']) && $_POST['disassembly'] == 1) {
+        $tests['disassembly'] = 1;
+    }
+    if (isset($_POST['mpi']) && $_POST['mpi'] == 1) {
+        $tests['mpi'] = 1;
+    }
+    if (isset($_POST['dimensional']) && $_POST['dimensional'] == 1) {
+        $tests['dimensional'] = 1;
+    }
+    if (isset($_POST['gauge']) && $_POST['gauge'] == 1) {
+        $tests['gauge'] = 1;
+    }
+    if (isset($_POST['assembly']) && $_POST['assembly'] == 1) {
+        $tests['assembly'] = 1;
+    }
+    if (isset($_POST['pressure']) && $_POST['pressure'] == 1) {
+        $tests['pressure test'] = 1;
+    }
 
     // Insert into work_order table
     $sql = "INSERT INTO work_order ( wo_no, level, chk_visual, chk_dissassembly, chk_mpi, chk_dimension, chk_gauge, chk_assembly, chk_pressure, wo_items, assign_to, created_by,  request_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
@@ -38,7 +53,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ii", $wo_id, $item_id);
         $stmt->execute();
+        $item_record_id = $stmt->insert_id;
         $stmt->close();
+
+        // Insert into wo_tests table
+        foreach ($tests as $test_type => $test_result) {
+            $sql = "INSERT INTO wo_tests (item_id, test_type, test_result) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("isi", $item_record_id, $test_type, $test_result);
+            $stmt->execute();
+            $stmt->close();
+        }
     }
 
     // Get superior email
