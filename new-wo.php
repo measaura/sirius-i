@@ -572,6 +572,7 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
                   processData: false,
                }).done(function (ajaxData) {
                   console.log(ajaxData);
+                  window.location.href = 'work-order.php';
 
                }).success(function (ajaxData) {
                   // Hide the loader
