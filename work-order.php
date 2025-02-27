@@ -2,6 +2,7 @@
 include_once 'includes/db_func.php';
 include_once 'func/user_check.php';
 $uac = $_SESSION['uac'];
+$uid = $_SESSION['uid'];
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-scheme="orange">
@@ -186,7 +187,7 @@ $uac = $_SESSION['uac'];
 
    <!-- SCROLL TO TOP BUTTON -->
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-   <div class="scroll-container">
+   <div class="scroll-container" id="scrollToTopContainer" style="display: none;">
       <a href="#root" class="scroll-page ratio ratio-1x1" aria-label="Scroll button"></a>
    </div>
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -205,6 +206,10 @@ $uac = $_SESSION['uac'];
     $(document).ready(function() {
         var table = new Tabulator("#work-order-table", {
           ajaxURL: 'func/get_wo.php',
+          ajaxParams: {
+              uac: uac,
+              uid: uid
+          },
           layout: "fitColumns",
           layoutColumnsOnNewData:true,
           pagination: "true",
@@ -330,5 +335,9 @@ $uac = $_SESSION['uac'];
         });
     });
     </script>
+<?php
+// Assuming $uac and $uid are defined and available in this scope
+echo "<script>var uac = $uac; var uid = $uid;</script>";
+?>
 </body>
 </html>

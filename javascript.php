@@ -44,5 +44,15 @@
          "showMethod": "fadeIn",
          "hideMethod": "fadeOut"
          }
+
+      });
+      // Check if #content height is less than 738, then hide the scroll to top button
+      document.addEventListener('DOMContentLoaded', function() {
+         var contentHeight = document.getElementById('content').clientHeight;   
+         console.log(contentHeight);
+         var scrollToTopContainer = document.getElementById('scrollToTopContainer');
+         if (contentHeight >= 738) {
+            scrollToTopContainer.style.display = 'block';
+         }
       });
    </script>

@@ -340,7 +340,7 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
 
    <!-- SCROLL TO TOP BUTTON -->
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-   <div class="scroll-container">
+   <div class="scroll-container" id="scrollToTopContainer" style="display: none;">
       <a href="#root" class="scroll-page ratio ratio-1x1" aria-label="Scroll button"></a>
    </div>
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
