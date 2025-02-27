@@ -7,7 +7,8 @@ include_once '../includes/db_func.php';
 // Get pagination parameters
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $size = isset($_GET['size']) ? (int)$_GET['size'] : 10;
-// $type = isset($_GET['type']) ? $_GET['type'] : 'all';
+$uac = isset($_GET['uac']) ? (int)$_GET['uac'] : 0;
+$uid = isset($_GET['uid']) ? (int)$_GET['uid'] : 0;
 $offset = ($page - 1) * $size;
 
 // Get filter parameters
@@ -15,9 +16,9 @@ $filters = isset($_GET['filter']) ? $_GET['filter'] : [];
 
 // Query to get total number of rows
 $total_sql = "SELECT COUNT(*) as total FROM work_order";
-// if($type != 'all') {
-//     $total_sql .= " WHERE item_type = '$type'";
-// }
+if($uac < 2) {
+    $total_sql .= " WHERE status > 0 AND assign_to = $uid";
+}
 
 // Apply filters to the total count query
 foreach ($filters as $filter) {
@@ -33,15 +34,15 @@ foreach ($filters as $filter) {
 
 $total_result = $conn->query($total_sql);
 $total_row = $total_result->fetch_assoc();
-$total_rows = $total_row['total'];
+$total_rows = intval($total_row['total']);
 $last_page = ceil($total_rows / $size);
 
 // Query the work_order table with pagination
 $sql = "SELECT wo.wo_id, wo.wo_no, wo.level, wo.status, wo.request_date
         FROM work_order wo";
-// if($type != 'all') {
-//     $sql .= " WHERE i.item_type = '$type'";
-// }
+if($uac < 2) {
+    $sql .= " WHERE status > 0 AND assign_to = $uid";
+}
 
 // Apply filters to the main query
 foreach ($filters as $filter) {
