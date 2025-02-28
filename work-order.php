@@ -178,7 +178,8 @@ $uid = $_SESSION['uid'];
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeBtn">Close</button>
-                    <button type="button" class="btn btn-primary" id="approveButton">Approve</button>
+                    <button type="button" class="btn btn-primary" id="approveButton" style="display: none;">Approve</button>
+                    <button type="button" class="btn btn-success" id="acceptButton" style="display: none;">Accept</button>
                 </div>
             </div>
         </div>
@@ -241,11 +242,13 @@ $uid = $_SESSION['uid'];
               }},
               {title: "Action", formatter: function(cell, formatterParams) {
                 var status = cell.getRow().getData().status;
-                if (status == '0') {
-                  return "<button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "'>Approve</button>";
-                } else {
-                  return "<button class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "'>View</button>";
-                }
+               if (status == '0') {
+                 return "<button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>Approve</button>";
+               } else if (status == '1') {
+                 return "<button class='btn btn-success btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>Accept</button>";
+               } else {
+                 return "<button class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>View</button>";
+               }
               }}
           ],
         }),
@@ -289,19 +292,31 @@ $uid = $_SESSION['uid'];
             (i.value = "none"), (n.value = "like"), (s.value = ""), table.clearFilter();
         });
 
-        $('#approvalModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var workOrderId = button.data('id');
-            var modal = $(this);
-            $.ajax({
-                url: 'func/get_wo_details.php',
-                method: 'GET',
-                data: { id: workOrderId },
-                success: function(response) {
-                    modal.find('.modal-body').html(response).data('id', workOrderId);
-                }
-            });
-        });
+      $('#approvalModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget);
+          var workOrderId = button.data('id');
+          var status = button.data('status');
+          var modal = $(this);
+          $.ajax({
+         url: 'func/get_wo_details.php',
+         method: 'GET',
+         data: { id: workOrderId },
+         success: function(response) {
+             modal.find('.modal-body').html(response).data('id', workOrderId);
+            //  var status = response.status; // Assuming the response contains the status
+             if (status == '0') {
+            $('#approveButton').show();
+            $('#acceptButton').hide();
+             } else if (status == '1') {
+            $('#approveButton').hide();
+            $('#acceptButton').show();
+             } else {
+            $('#approveButton').hide();
+            $('#acceptButton').hide();
+             }
+         }
+          });
+      });
 
         $('#approveButton').click(function() {
             var workOrderId = $('#approvalModal').find('.modal-body').data('id');
