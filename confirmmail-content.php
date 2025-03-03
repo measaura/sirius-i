@@ -4,7 +4,7 @@
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-   <meta name="description" content="The login page allows a user to gain access to an application by entering their username and password or by authenticating using a social media login.">
+   <meta name="description" content="SIRIUS-I is a responsive admin dashboard for managing inventory and certification for iron materials in Setegap Ventures Petroleum.">
    <title>Registration | SIRIUS-I</title>
 
 

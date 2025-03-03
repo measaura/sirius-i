@@ -4,7 +4,7 @@
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-   <meta name="description" content="Change your password for security reasons or reset it if you forget it.">
+   <meta name="description" content="SIRIUS-I is a responsive admin dashboard for managing inventory and certification for iron materials in Setegap Ventures Petroleum.">
    <title>Password Reminder | Nifty - Admin Template</title>
 
 

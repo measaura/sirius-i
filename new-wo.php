@@ -16,7 +16,7 @@ $wo_no = "WO-" . date('y') . "." . $wo_id;
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-   <meta name="description" content="Add your own content to this blank page.">
+   <meta name="description" content="SIRIUS-I is a responsive admin dashboard for managing inventory and certification for iron materials in Setegap Ventures Petroleum.">
    <title>New Work Order | SIRIUS-I</title>
 
 
