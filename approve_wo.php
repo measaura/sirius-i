@@ -9,11 +9,12 @@ if($_SERVER['SERVER_NAME'] == 'sirius-i.test'){
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     $workOrderId = intval($_POST['id']);
+    $approvedBy = intval($_SESSION['uid']);
 
     // Update work order status to 'approved'
-    $sql = "UPDATE work_order SET status = 1 WHERE wo_id = ?";
+    $sql = "UPDATE work_order SET status = 1, approved_by = ?, approve_date = NOW() WHERE wo_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $workOrderId);
+    $stmt->bind_param("ii", $approvedBy, $workOrderId);
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
