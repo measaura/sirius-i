@@ -10,7 +10,7 @@ $uid = $_SESSION['uid'];
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-   <meta name="description" content="SIRIUS-I is a responsive admin dashboard for managing inventory and certification for iron materials in Setegap Ventures Petroleum.">
+   <meta name="description" content="Add your own content to this blank page.">
    <title>Work Orders | SIRIUS-I</title>
 
    <!-- STYLESHEETS -->
@@ -163,7 +163,7 @@ $uid = $_SESSION['uid'];
                   <!-- Loader - Ball spin fade loader -->
                   <div class="loader">
                       <div class="loader-inner ball-spin-fade-loader">
-                        <div></div>
+<div></div>
                         <div></div>
                         <div></div>
                         <div></div>
@@ -185,6 +185,38 @@ $uid = $_SESSION['uid'];
         </div>
     </div>
     <!-- End of Approval Modal -->
+
+    <!-- Approve Modal -->
+    <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="approveModalLabel">Work Order Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="workOrderDetails">
+                        <!-- Work Order details will be loaded here -->
+                    </div>
+                    <form id="assignForm">
+                        <div class="form-group">
+                            <label for="assignTo">Assign To</label>
+                            <select class="form-control" id="assignTo" name="assign_to">
+                                <!-- Options will be loaded here -->
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveAssignment">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Approve Modal -->
 
    <!-- SCROLL TO TOP BUTTON -->
    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -240,14 +272,25 @@ $uid = $_SESSION['uid'];
                     return "Unknown";
                 }
               }},
-              {title: "Action", formatter: function(cell, formatterParams) {
+              {title: "Action", field: "assign_to", formatter: function(cell, formatterParams) {
                 var status = cell.getRow().getData().status;
-               if (status == '0') {
-                 return "<button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>Approve</button>";
-               } else if (status == '1') {
-                 return "<button class='btn btn-success btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>Accept</button>";
+               if (uac > 2) {
+                  if (status == '0') {
+                     return "<button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>Approve</button>";
+                  } else {
+                     return "<button class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>View</button>";
+                  }
                } else {
-                 return "<button class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>View</button>";
+                  var assigned_id = cell.getData().assign_to;
+                  if (uid == assigned_id) {
+                     if(status == 1 ){
+                        return "<button class='btn btn-success btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>Accept</button>";
+                     } else {
+                        return "<button id='openWO' class='btn btn-success btn-sm' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>Open</button>";
+                     }
+                  } else {
+                     return "<button class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#approvalModal' data-id='" + cell.getRow().getData().wo_id + "' data-status='" + cell.getRow().getData().status + "'>View</button>";
+                  }
                }
               }}
           ],
@@ -301,21 +344,64 @@ $uid = $_SESSION['uid'];
          url: 'func/get_wo_details.php',
          method: 'GET',
          data: { id: workOrderId },
-         success: function(response) {
-             modal.find('.modal-body').html(response).data('id', workOrderId);
-            //  var status = response.status; // Assuming the response contains the status
-             if (status == '0') {
-            $('#approveButton').show();
-            $('#acceptButton').hide();
-             } else if (status == '1') {
-            $('#approveButton').hide();
-            $('#acceptButton').show();
-             } else {
-            $('#approveButton').hide();
-            $('#acceptButton').hide();
-             }
+         success: function(data) {
+            let detailsHtml = '';
+            if(data.error){
+               detailsHtml = data.error;
+            } else {
+               detailsHtml = `
+                  <h3>Work Order No: ${data.wo_no}</h3>
+                  <p>Created By: <b>${data.created_by}</b></p>
+                  <p>Request Date: <b>${data.request_date}</b></p>
+                  <p>Level: <b>${data.level}</b>&nbsp; inspections: <b>${data.test_results}</b></p>
+                  <p>Assigned To: <b>${data.assign_to}</b></p>
+                  <p>Status: <b>${data.status_text}</b></p>
+                  <h4>Items</h4>
+                  <table class="table">
+                        <thead>
+                           <tr>
+                              <th>Item</th>
+                              <th>OEM Serial</th>
+                           </tr>
+                        </thead>
+                        <tbody>`;
+               data.items.forEach(item => {
+                  detailsHtml += `
+                        <tr>
+                           <td>${item.item}</td>
+                           <td>${item.oem_serial}</td>
+                        </tr>`;
+               });
+               detailsHtml += `
+                        </tbody>
+                  </table>`;
+            //   $('#workOrderDetails').html(detailsHtml);
+            }
+            // Load assign_to options
+            let assignToOptions = ''; // Fetch options from your source
+            $('#assignTo').html(assignToOptions);
+
+            modal.find('.modal-body').html(detailsHtml).data('id', workOrderId);
+            var status = data.status; // Assuming the response contains the status
+            if(uac<=2){
+               if (status == '0') {
+                  $('#approveButton').show();
+                  $('#acceptButton').hide();
+               } else if (status == '1') {
+                  $('#approveButton').hide();
+                  $('#acceptButton').show();
+               }
+            } else {
+               if (status == '0') {
+                  $('#approveButton').show();
+                  $('#acceptButton').hide();
+               } else {
+                  $('#approveButton').hide();
+                  $('#acceptButton').hide();
+               }
+            }
          }
-          });
+         });
       });
 
         $('#approveButton').click(function() {
@@ -348,6 +434,38 @@ $uid = $_SESSION['uid'];
                 }
             });
         });
+
+        $('#acceptButton').click(function() {
+            var workOrderId = $('#approvalModal').find('.modal-body').data('id');
+            console.log( workOrderId);
+            $('.modal-body').hide();
+            $('.modal-footer').hide();
+            $('#loader').show(); // Show loader
+            $.ajax({
+                url: 'accept_wo.php',
+                method: 'POST',
+                data: { id: workOrderId },
+                success: function(response) {
+                  console.log(response);
+                  let data = JSON.parse(response);
+                    $('#loader').hide(); // Hide loader
+                    $('.modal-body').show();
+                    $('.modal-footer').show();
+                    $('#approvalModal').modal('hide'); // Hide modal
+                     if(data.type == 'success'){
+                      toastr.success(data.text,'SIRIUS-I');
+                     }else{
+                        toastr.error(data.text,'SIRIUS-I');
+                     }
+                     table.setData(); // This will reload the data from the ajaxURL
+                },
+                error: function() {
+                  $('#loader').hide(); // Hide loader on error
+                  // alert('Failed to approve work order.');
+                }
+            });
+        });
+
     });
     </script>
 <?php
