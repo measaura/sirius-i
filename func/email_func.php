@@ -268,7 +268,11 @@ function sendEmail($to,$subject,$title,$info,$buttontxt,$buttonlink,$name){
     $mail->msgHTML($message); // remove if you do not want to send HTML email
     $mail->AltBody = $alt_message;
 
-    $mail->send();
+    if(!$mail->send()){
+        return $mail->ErrorInfo;
+    }else{
+        return true;
+    }
     // echo 'Message has been sent';
 
 }
