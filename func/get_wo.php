@@ -38,7 +38,7 @@ $total_rows = intval($total_row['total']);
 $last_page = ceil($total_rows / $size);
 
 // Query the work_order table with pagination
-$sql = "SELECT wo.wo_id, wo.wo_no, wo.level, wo.status, wo.request_date
+$sql = "SELECT wo.wo_id, wo.wo_no, wo.level, wo.status, wo.request_date, wo.assign_to
         FROM work_order wo";
 if($uac < 2) {
     $sql .= " WHERE status > 0 AND assign_to = $uid";
