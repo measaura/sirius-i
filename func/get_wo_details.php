@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 include_once '../includes/db_func.php';
 
 if (isset($_GET['id'])) {
@@ -7,7 +8,7 @@ if (isset($_GET['id'])) {
     $sql = "SELECT wo.wo_no, wo.level, wo.status, wo.request_date, 
           i.item, i.oem_serial,
           GROUP_CONCAT(CONCAT(wot.test_type) SEPARATOR ', ') AS test_results,
-          u1.fullname AS created_by, u2.fullname AS assign_to
+          u1.fullname AS created_by, u2.fullname AS assign_to, wo.assign_to as assign_to_id
       FROM work_order wo
       JOIN wo_items woi ON wo.wo_id = woi.wo_id
       JOIN inventory i ON woi.item_id = i.id
@@ -16,47 +17,46 @@ if (isset($_GET['id'])) {
       JOIN users u2 ON wo.assign_to = u2.id
       WHERE wo.wo_id = ?
       GROUP BY wo.wo_id, woi.id";
-// die($sql);
+    // die($sql);
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $workOrderId);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    $data = [];
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            if (!isset($displayed)) {
-                switch ($row['status']) {
-                  case 0:
-                    $status =  "Created";
-                    break;
-                  case 1:
-                    $status =  "Approved";
-                    break;
-                  case 2:
-                    $status =  "Assigned";
-                    break;
-                  case 3:
-                    $status =  "Completed";
-                    break;
-                  default:
-                    $status =  "Unknown";
-                    break;
-                }
-                echo "<h3>Work Order No: {$row['wo_no']}</h3>
-                  <p>Level: {$row['level']}</p>
-                    <p>Status: {$status}</p>
-                  <p>Request Date: " . date('H:i - d/m/Y', strtotime($row['request_date'])) . "</p>
-                  <p>INSPECTIONS: ".strtoupper($row['test_results'])."</p>
-                  <p>Created By: {$row['created_by']}</p>
-                  <p>Assigned To: {$row['assign_to']}</p>";
-              $displayed = true;
+            if (!isset($data['wo_no'])) {
+                $status_text = match ($row['status']) {
+                    0 => "Created",
+                    1 => "Approved",
+                    2 => "Assigned",
+                    3 => "Completed",
+                    default => "Unknown",
+                };
+                $data = [
+                    'wo_no' => $row['wo_no'],
+                    'level' => $row['level'],
+                    'status' => $row['status'],
+                    'status_text' => $status_text,
+                    'request_date' => date('d/m/Y @ H:i a', strtotime($row['request_date'])),
+                    'test_results' => strtoupper($row['test_results']),
+                    'created_by' => $row['created_by'],
+                    'assign_to' => $row['assign_to'],
+                    'assign_to_id' => $row['assign_to_id'],
+                    'items' => []
+                ];
             }
-            echo "<p>Item: {$row['item']} ({$row['oem_serial']})</p>";
-          }
+            $data['items'][] = [
+                'item' => $row['item'],
+                'oem_serial' => $row['oem_serial']
+            ];
+        }
     } else {
-        echo "No work order found.";
+        $data = ['error' => 'No work order found.'];
     }
 
+    echo json_encode($data);
     $stmt->close();
 }
 ?>
